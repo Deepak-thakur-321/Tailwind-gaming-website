@@ -1,0 +1,1267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+   <title>Game Website with Tailwind</title>
+
+   <!-- Styles Links -->
+   <link rel="stylesheet" href="/public/output.css" />
+
+   <script src="https://cdn.tailwindcss.com"></script>
+
+
+   <!-- Font Awesome Link -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+   <!-- Font Family Link -->
+   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet" />
+
+   <!-- Gsap Links -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+
+<body class="bg-black w-full">
+   <div class="custom-cursor"></div>
+   <header>
+      <!-- Navbar Start -->
+      <nav class="bg-black text-white shadow-lg shadow-cyan-500/50 font-['Orbitron']">
+         <div class="container mx-auto px-4">
+            <div class="grid grid-cols-12 py-4 items-center">
+
+               <!-- LOGO -->
+               <div class="col-span-6 lg:col-span-2">
+                  <img src="../public/Images/gamin-site-logo.svg" alt="Gaming Logo"
+                     class="w-32 hover:scale-105 transition-transform duration-300">
+               </div>
+
+               <!-- DESKTOP MENU -->
+               <div class="hidden lg:flex col-span-7 justify-center">
+                  <ul class="flex gap-12 text-lg uppercase tracking-wide">
+                     <li><a href="#" class="text-cyan-400 hover:text-white transition-all duration-300">Home</a></li>
+                     <li><a href="#" class="text-cyan-400 hover:text-white transition-all duration-300">Matches</a></li>
+                     <li><a href="#" class="text-cyan-400 hover:text-white transition-all duration-300">Pages</a></li>
+                     <li><a href="#" class="text-cyan-400 hover:text-white transition-all duration-300">Shop</a></li>
+                     <li><a href="#" class="text-cyan-400 hover:text-white transition-all duration-300">Blog</a></li>
+                     <li><a href="#" class="text-cyan-400 hover:text-white transition-all duration-300">Contact</a></li>
+                  </ul>
+               </div>
+
+               <!-- DESKTOP ICONS + BUTTON -->
+               <div class="hidden lg:flex col-span-3 justify-end items-center gap-5">
+                  <i class="fa-solid fa-magnifying-glass hover:text-cyan-400 text-xl cursor-pointer transition"></i>
+                  <i class="fa-solid fa-cart-shopping hover:text-cyan-400 text-xl cursor-pointer transition"></i>
+
+                  <div class="flex items-center gap-3 cursor-pointer hover:scale-105 transition-transform">
+                     <i class="fa-solid fa-gamepad text-cyan-400 text-xl"></i>
+                     <span
+                        class="px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-[#d14dff] text-black font-semibold shadow-[0_0_20px_rgba(209,77,255,0.7)]">
+                        Get In Touch
+                     </span>
+                  </div>
+               </div>
+
+               <!-- MOBILE TOGGLE -->
+               <div class="lg:hidden col-span-6 flex justify-end">
+                  <button id="menu-toggle" class="text-3xl text-cyan-400">
+                     <i class="fa-solid fa-bars-staggered"></i>
+                  </button>
+               </div>
+            </div>
+         </div>
+
+         <!-- MOBILE SIDEBAR NAV -->
+         <div id="mobile-menu"
+            class="fixed lg:hidden top-0 left-0 w-72 h-full bg-[#0f0f1b]/90 backdrop-blur-md text-white z-50 transform -translate-x-full transition-transform duration-500 ease-in-out shadow-2xl border-r border-[#38bdf8]/20">
+            <div class="mt-12 px-6">
+               <ul class="space-y-8 text-xl font-bold tracking-widest">
+                  <li><a href="#"
+                        class="block hover:scale-110 hover:text-[#38bdf8] transition-all duration-300 ease-in-out">Home</a>
+                  </li>
+                  <li><a href="#"
+                        class="block hover:scale-110 hover:text-[#f472b6] transition-all duration-300 ease-in-out">Matches</a>
+                  </li>
+                  <li><a href="#"
+                        class="block hover:scale-110 hover:text-[#8b5cf6] transition-all duration-300 ease-in-out">Pages</a>
+                  </li>
+                  <li><a href="#"
+                        class="block hover:scale-110 hover:text-[#22d3ee] transition-all duration-300 ease-in-out">Shop</a>
+                  </li>
+                  <li><a href="#"
+                        class="block hover:scale-110 hover:text-[#38bdf8] transition-all duration-300 ease-in-out">Blog</a>
+                  </li>
+                  <li><a href="#"
+                        class="block hover:scale-110 hover:text-[#facc15] transition-all duration-300 ease-in-out">Contact</a>
+                  </li>
+               </ul>
+            </div>
+         </div>
+      </nav>
+   </header>
+
+   <div id="sidebar" class="fixed z-20 inset-0 bg-black bg-opacity-50 hidden"></div>
+
+   <!-- Navbar End -->
+
+   <main class="w-full">
+      <!-- Hero section -->
+
+      <div class="relative min-h-screen w-full overflow-hidden bg-black text-white">
+         <!-- Background Image (Faded Character)  -->
+         <img src="Images/GamingWebsiteBgImage.jpg"
+            class="absolute animate-float inset-0 w-full h-full object-cover object-top opacity-40 scale-125 z-0 pointer-events-none"
+            alt="Background Character" />
+
+         <!-- Overlay Aura -->
+         <div class="absolute w-[300px] h-[300px] rounded-full blur-3xl opacity-30 z-0"></div>
+
+         <!-- Foreground Content -->
+         <div
+            class="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center justify-center px-6 py-20 min-h-screen">
+            <!-- Left Text Content -->
+            <div
+               class="space-y-10 lg:space-y-6 p-4 flex flex-col items-center justify-center text-center lg:text-start lg:items-start lg:justify-start transition duration-300 ease-in-out hover:scale-105 drop-shadow-[0_0_30px_rgba(0,255,255,0.4)]">
+               <h3 class="animate-hero text-lg md:text-2xl text-cyan-400 tracking-widest">
+                  THE RISE OF CYBER LEGIONS
+               </h3>
+
+               <h1 id="heroHeading"
+                  class="animate-hero text-4xl md:text-6xl font-extrabold leading-tight drop-shadow-[0_0_30px_rgba(0,255,255,0.4)]">
+                  BORN FROM<span class="text-[#d14dff]"> CYBER SHADOWS</span> GAMING
+                  DOMINION
+               </h1>
+
+               <p class="animate-hero text-gray-400 text-base md:text-lg max-w-2xl mx-auto lg:mx-0">
+                  Enter the era of mechanized warfare. Command elite ninja bots,
+                  battle rogue demon cores, and dominate the metaverse in the most
+                  advanced esports battlefield ever built.
+               </p>
+
+               <div class="animate-hero flex flex-col sm:flex-row gap-5 pt-6 justify-center lg:justify-start">
+                  <button
+                     class="px-8 py-4 bg-gradient-to-r from-cyan-500 to-purple-700 text-black font-bold rounded-xl transition transform duration-300 ease-in-out hover:scale-105 hover:shadow-[0_0_40px_rgba(0,255,255,0.7)]">
+                     INITIATE COMBAT
+                  </button>
+                  <button
+                     class="px-10 py-4 border border-cyan-400 hover:bg-cyan-600 hover:text-black rounded-xl transition-all">
+                     WATCH TRANSMISSION
+                  </button>
+               </div>
+            </div>
+
+            <!-- Right Side Character Image -->
+            <div id="heroImage" class="w-full flex justify-center items-center">
+               <img src="Images/heroImage.png"
+                  class="w-full hidden lg:flex max-w-full h-auto object-contain drop-shadow-[0_0_25px_rgba(18,87,255,0.5)] transition duration-300 ease-in-out transform hover:-translate-y-2 scale-x-[-1] shery-parallax"
+                  alt=" Character" />
+            </div>
+         </div>
+      </div>
+      <!-- Hero section End -->
+
+      <!-- About Section -->
+      <div class="container mx-auto py-16" id="page2">
+         <div class="grid grid-cols-12 items-center">
+            <!-- Left Section Start -->
+            <div class="col-span-12 md:col-span-12 lg:col-span-6 p-5 relative">
+               <div
+                  class="text-white p-4 relative z-10 hover:-translate-y-2 transform-translate duration-300 ease-in-out">
+                  <h4
+                     class="aboutHeading text-[#d14dff] text-lg font-semibold uppercase tracking-wide drop-shadow-[0_0_12px_rgba(209,77,255,0.8)]">
+                     About XSPORTS
+                  </h4>
+
+                  <h2 class="aboutHeading text-3xl lg:text-5xl font-extrabold tracking-wide mt-6 leading-tight">
+                     UNLEASH
+                     <span class="text-[#00ffff] drop-shadow-[0_0_10px_rgba(0,255,255,0.6)]">
+                        NINJA PROTOCOL</span>
+                  </h2>
+
+                  <p class="aboutHeading mt-6 text-lg leading-relaxed text-gray-300 max-w-xl">
+                     A game studio forging the future — fusing high-end visuals,
+                     immersive gameplay, and multi-sensory tech for an unmatched
+                     gaming evolution.
+                  </p>
+               </div>
+
+               <!-- Glowing Background Aura -->
+               <div
+                  class="absolute top-10 left-10 w-60 h-60 bg-gradient-to-tr from-[#d14dff] to-[#00ffff] opacity-20 blur-3xl rounded-full z-0">
+               </div>
+
+               <!-- Feature Grid boxes -->
+               <div class="grid grid-cols-12 mt-6 gap-4 relative z-10">
+                  <div class="col-span-12 lg:col-span-6 md:col-span-6 space-y-4">
+                     <!-- Box 1 -->
+                     <div
+                        class="aboutBoxes bg-[#111] border border-[#00ffff33] hover:border-[#00ffff] hover:scale-105 transition duration-300 rounded-xl shadow-lg shadow-cyan-500/10 p-4 flex gap-4 items-start">
+                        <img src="https://ex-coders.com/html/xports/assets/img/home-1/icon/icon-1.svg"
+                           class="w-12 h-12 animate-pulse" alt="" />
+                        <div>
+                           <h4 class="font-bold text-lg text-cyan-400">
+                              Neural VR Sync
+                           </h4>
+                           <p class="text-gray-400 mt-2 text-sm">
+                              Merge mind and machine in real-time VR combat arenas
+                              designed for shadow agility.
+                           </p>
+                        </div>
+                     </div>
+
+                     <!-- Box 2 -->
+                     <div
+                        class="aboutBoxes bg-[#111] border border-[#00ffff33] hover:border-[#00ffff] hover:scale-105 transition duration-300 rounded-xl shadow-lg shadow-cyan-500/10 p-4 flex gap-4 items-start">
+                        <img src="https://ex-coders.com/html/xports/assets/img/home-1/icon/icon-3.svg"
+                           class="w-12 h-12 animate-pulse" alt="" />
+                        <div>
+                           <h4 class="font-bold text-lg text-cyan-400">
+                              Geo-Locked Missions
+                           </h4>
+                           <p class="text-gray-400 mt-2 text-sm">
+                              Unlock tactical operations and resource nodes based on
+                              your physical world coordinates.
+                           </p>
+                        </div>
+                     </div>
+                  </div>
+
+                  <div class="col-span-12 lg:col-span-6 md:col-span-6 space-y-4">
+                     <!-- Box 3 -->
+                     <div
+                        class="aboutBoxes bg-[#111] border border-[#d14dff33] hover:border-[#d14dff] hover:scale-105 transition duration-300 rounded-xl shadow-lg shadow-purple-500/10 p-4 flex gap-4 items-start">
+                        <img src="https://ex-coders.com/html/xports/assets/img/home-1/icon/icon-2.svg"
+                           class="w-12 h-12 animate-pulse" alt="" />
+                        <div>
+                           <h4 class="font-bold text-lg text-pink-400">
+                              Quantum Rift Mode
+                           </h4>
+                           <p class="text-gray-400 mt-2 text-sm">
+                              Battle across dimensions — from cyberpunk cities to
+                              demon-ruled wastelands.
+                           </p>
+                        </div>
+                     </div>
+
+                     <!-- Box 4 -->
+                     <div
+                        class="aboutBoxes bg-[#111] border border-[#d14dff33] hover:border-[#d14dff] hover:scale-105 transition duration-300 rounded-xl shadow-lg shadow-purple-500/10 p-4 flex gap-4 items-start">
+                        <img src="https://ex-coders.com/html/xports/assets/img/home-1/icon/icon-4.svg"
+                           class="w-12 h-12 animate-pulse" alt="" />
+                        <div>
+                           <h4 class="font-bold text-lg text-pink-400">
+                              Zero-Lag Core
+                           </h4>
+                           <p class="text-gray-400 mt-2 text-sm">
+                              Optimized for hyperspeed response across consoles, with
+                              surgical combat precision.
+                           </p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <!-- Left Section End -->
+
+            <!-- Right Side Images -->
+
+            <div class="col-span-12 lg:col-span-6 flex space-x-5 items-center mt-5 lg:mt-0">
+               <!-- Image 1 -->
+               <div id="aboutImagesTop"
+                  class="relative w-1/2 overflow-hidden rounded-3xl shadow-lg shadow-cyan-500/20 group">
+                  <img
+                     class="w-full h-full object-cover transform scale-x-[-1] group-hover:-translate-y-2 transition-transform duration-300 ease-in-out"
+                     src="../public/Images/redNinja.jpg" alt="" />
+                  <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-30"></div>
+               </div>
+
+               <!-- Image 2 -->
+               <div id="aboutImagesBottom"
+                  class="relative w-1/2 overflow-hidden rounded-3xl shadow-lg shadow-purple-500/20 group">
+                  <img
+                     class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500 ease-in-out"
+                     src="../public/Images/blueNinja.jpg" alt="" />
+                  <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-30"></div>
+               </div>
+            </div>
+
+            <!-- Right Side Image End -->
+         </div>
+      </div>
+
+      <!-- About End -->
+
+      <!-- Game Video   -->
+
+      <section class="hidden md:block lg:block relative w-full h-screen overflow-hidden font-[Orbitron]">
+         <!-- YouTube Background -->
+         <div class="video-bg absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
+            <iframe width="560" height="1015"
+               src="https://www.youtube.com/embed/p7ssfNc7CA0?autoplay=1&mute=1&controls=0&loop=1&playlist=p7ssfNc7CA0&modestbranding=1&showinfo=0&rel=0"
+               title="YouTube video player" frameborder="0"
+               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+               referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+         </div>
+
+         <!-- Overlay -->
+         <div class="absolute inset-0 z-10"></div>
+
+         <!-- Content -->
+         <div class="relative z-20 flex flex-col justify-end items-center h-full px-4 pb-20 text-center text-white">
+            <h1 class="text-3xl md:text-5xl font-extrabold tracking-widest drop-shadow-lg uppercase">
+               Welcome to Gaming Zone
+            </h1>
+            <p class="mt-4 text-lg md:text-xl tracking-wide text-cyan-200 max-w-xl">
+               Gear up. Dive in. Conquer the digital battlefield.
+            </p>
+            <a href="https://www.youtube.com/embed/p7ssfNc7CA0?autoplay=1&mute=1&controls=0&loop=1&playlist=p7ssfNc7CA0&modestbranding=1&showinfo=0&rel=0"
+               target="_blank" class="mt-6">
+               <button
+                  class="px-8 py-3 bg-gradient-to-r from-cyan-400 via-fuchsia-500 to-purple-600 rounded-xl text-black font-semibold shadow-lg hover:scale-105 transition-transform duration-300">
+                  EXPLORE NOW
+               </button>
+            </a>
+         </div>
+      </section>
+
+      <!-- Game Video End   -->
+
+      <!-- Gallery Section -->
+
+      <div class="container mt-7" id="page3">
+         <div id="galleryText" class="text-white text-center">
+            <h4 class="font-bold">TECHNICALLY STABILIZED</h4>
+            <h2
+               class="lg:text-5xl text-3xl mt-5 mb-6 text-red-700 transform-translate duration-300 ease-in-out cursor-pointer font-bold">
+               HIGH-RESOLUTIONS GAMES
+            </h2>
+         </div>
+
+         <div class="grid grid-cols-12 lg:p-5 p-2 gap-5">
+            <!-- 1st card -->
+            <div
+               class="galleryCardTop relative group col-span-12 md:col-span-6 lg:col-span-3 overflow-hidden hover:-translate-y-2 hover:transform-translate hover:duration-300 hover:ease-in-out hover:shadow-white hover:border hover:border-gray-700">
+               <!-- Image -->
+               <img class="object-cover w-full h-96 object-cover object-top transition duration-300"
+                  src="../public/Images/shadow-blade-arena.jpg" alt="" />
+
+               <!-- Gradient Overlay on Hover -->
+               <div
+                  class="absolute inset-0 bg-gradient-to-t from-gray-600 via-transparent to-transparent opacity-0 group-hover:opacity-80 transition duration-300">
+               </div>
+
+               <!-- Text + Buttons -->
+
+               <div
+                  class="absolute inset-0 flex flex-col justify-end items-center opacity-0 group-hover:opacity-100 transition duration-300 space-y-3 pb-6 py-4">
+                  <h3 class="text-xl font-bold group-hover:text-white">
+                     Shadow Blade Arena
+                  </h3>
+                  <button
+                     class="bg-white text-red-700 font-bold px-6 py-2 hover:bg-red-600 hover:text-white transition">
+                     Enter Battle
+                  </button>
+               </div>
+            </div>
+
+            <!-- 2nd card -->
+            <div
+               class="galleryCardTop relative group col-span-12 md:col-span-6 lg:col-span-3 overflow-hidden hover:-translate-y-2 hover:transform-translate hover:duration-300 hover:ease-in-out hover:border hover:border-blue-500">
+               <!-- Image -->
+               <img class="object-cover w-full h-96 object-cover object-top transition duration-300"
+                  src="../public/Images/street-racer.jpg" alt="" />
+
+               <!-- Gradient Overlay on Hover -->
+               <div
+                  class="absolute inset-0 bg-gradient-to-t from-cyan-500 via-transparent to-transparent opacity-0 group-hover:opacity-80 transition duration-300">
+               </div>
+
+               <!-- Text + Buttons -->
+
+               <div
+                  class="absolute inset-0 flex flex-col justify-end items-center opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out space-y-3 pb-6 py-4">
+                  <h3 class="text-xl font-bold group-hover:text-white">
+                     Midnight Street Racers
+                  </h3>
+                  <button
+                     class="bg-white text-red-700 font-bold px-6 py-2 hover:bg-red-600 hover:text-white transition">
+                     Start Racing
+                  </button>
+               </div>
+            </div>
+
+            <!-- 3rd card -->
+
+            <div
+               class="galleryCardTop relative group col-span-12 md:col-span-6 lg:col-span-3 overflow-hidden hover:-translate-y-2 hover:transform-translate hover:duration-300 hover:ease-in-out hover:shadow-white hover:border hover:border-red-700">
+               <!-- Image -->
+               <img class="object-cover w-full h-96 object-cover object-top transition duration-300"
+                  src="../public/Images/cybernetic-warzone.jpg" alt="" />
+
+               <!-- Gradient Overlay on Hover -->
+               <div
+                  class="absolute inset-0 bg-gradient-to-t from-red-700 via-transparent to-transparent opacity-0 group-hover:opacity-80 transition duration-300">
+               </div>
+
+               <!-- Text + Buttons -->
+
+               <div
+                  class="absolute inset-0 flex flex-col justify-end items-center opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out space-y-3 pb-6 py-4">
+                  <h3 class="text-xl font-bold group-hover:text-white">
+                     Cybernetic Warzone
+                  </h3>
+                  <button
+                     class="bg-white text-red-700 font-bold px-6 py-2 hover:bg-red-600 hover:text-white transition">
+                     Join Battle
+                  </button>
+               </div>
+            </div>
+
+            <!-- 4th card -->
+
+            <div
+               class="galleryCardTop relative group col-span-12 md:col-span-6 lg:col-span-3 overflow-hidden hover:-translate-y-2 hover:transform-translate hover:duration-300 hover:ease-in-out hover:shadow-white hover:border hover:border-slate-500">
+               <!-- Image -->
+               <img class="object-cover w-full h-96 object-cover object-top transition duration-300"
+                  src="../public/Images/zombie-mode.jpg" alt="" />
+
+               <!-- Gradient Overlay on Hover -->
+               <div
+                  class="absolute inset-0 bg-gradient-to-t from-slate-800 via-transparent to-transparent opacity-0 group-hover:opacity-80 transition duration-300">
+               </div>
+
+               <!-- Text + Buttons -->
+
+               <div
+                  class="absolute inset-0 flex flex-col justify-end items-center opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out space-y-3 pb-6 py-4">
+                  <h3 class="text-xl font-bold group-hover:text-white">
+                     Zombie Apocalypse Mode
+                  </h3>
+                  <button
+                     class="bg-white text-red-700 font-bold px-6 py-2 hover:bg-red-600 hover:text-white transition">
+                     Defend Base
+                  </button>
+               </div>
+            </div>
+
+            <!-- 5th card -->
+
+            <div
+               class="galleryCardBottom relative group col-span-12 md:col-span-6 lg:col-span-3 overflow-hidden hover:-translate-y-2 hover:transform-translate hover:duration-300 hover:ease-in-out hover:shadow-white hover:border hover:border-red-500">
+               <!-- Image -->
+               <img class="object-cover w-full h-96 object-cover object-top transition duration-300"
+                  src="../public/Images/alien-invision.jpg" alt="" />
+
+               <!-- Gradient Overlay on Hover -->
+               <div
+                  class="absolute inset-0 bg-gradient-to-t from-red-700 via-transparent to-transparent opacity-0 group-hover:opacity-80 transition duration-300">
+               </div>
+
+               <!-- Text + Buttons -->
+
+               <div
+                  class="absolute inset-0 flex flex-col justify-end items-center opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out space-y-3 pb-6 py-4">
+                  <h3 class="text-xl font-bold group-hover:text-white">
+                     Alien Invasion Mission
+                  </h3>
+                  <button
+                     class="bg-white text-red-700 font-bold px-6 py-2 hover:bg-red-600 hover:text-white transition">
+                     Deploy Troops
+                  </button>
+               </div>
+            </div>
+
+            <!-- 6th card -->
+
+            <div
+               class="galleryCardBottom relative group col-span-12 md:col-span-6 lg:col-span-3 overflow-hidden hover:-translate-y-2 hover:transform-translate hover:duration-300 hover:ease-in-out hover:border hover:border-gray-500">
+               <!-- Image -->
+               <img class="object-cover w-full h-96 object-cover object-top transition duration-300"
+                  src="../public/Images/dragon-rise.jpg" alt="" />
+
+               <!-- Gradient Overlay on Hover -->
+               <div
+                  class="absolute inset-0 bg-gradient-to-t from-gray-950 via-transparent to-transparent opacity-0 group-hover:opacity-80 transition duration-300">
+               </div>
+
+               <!-- Text + Buttons -->
+
+               <div
+                  class="absolute inset-0 flex flex-col justify-end items-center opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out space-y-3 pb-6 py-4">
+                  <h3 class="text-xl font-bold group-hover:text-white">
+                     Rise of the Dragon
+                  </h3>
+                  <button
+                     class="bg-white text-red-700 font-bold px-6 py-2 hover:bg-red-600 hover:text-white transition">
+                     Begin Hunt
+                  </button>
+               </div>
+            </div>
+
+            <!-- 7th card -->
+
+            <div
+               class="galleryCardBottom relative group col-span-12 md:col-span-6 lg:col-span-3 overflow-hidden hover:-translate-y-2 hover:transform-translate hover:duration-300 hover:ease-in-out hover:shadow-xl hover:border hover:border-gray-500">
+               <!-- Image -->
+               <img class="object-cover w-full h-96 object-cover object-top transition duration-300"
+                  src="../public/Images/future-strike.jpg" alt="" />
+
+               <!-- Gradient Overlay on Hover -->
+               <div
+                  class="absolute inset-0 bg-gradient-to-t from-slate-800 via-transparent to-transparent opacity-0 group-hover:opacity-80 transition duration-300">
+               </div>
+
+               <!-- Text + Buttons -->
+
+               <div
+                  class="absolute inset-0 flex flex-col justify-end items-center opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out space-y-3 pb-6 py-4">
+                  <h3 class="text-xl font-bold group-hover:text-white">
+                     Future Strike Ops
+                  </h3>
+                  <button
+                     class="bg-white text-red-700 font-bold px-6 py-2 hover:bg-red-600 hover:text-white transition">
+                     Launch Mission
+                  </button>
+               </div>
+            </div>
+
+            <!-- 8th card -->
+
+            <div
+               class="galleryCardBottom relative group col-span-12 md:col-span-6 lg:col-span-3 overflow-hidden hover:-translate-y-2 hover:transform-translate hover:duration-300 hover:ease-in-out hover:shadow-white hover:border hover:border-slate-500">
+               <!-- Image -->
+               <img class="object-cover w-full h-96 object-cover object-top transition duration-300"
+                  src="../public/Images/kingdom-defence.jpg" alt="" />
+
+               <!-- Gradient Overlay on Hover -->
+               <div
+                  class="absolute inset-0 bg-gradient-to-t from-slate-700 via-transparent to-transparent opacity-0 group-hover:opacity-80 transition duration-300">
+               </div>
+
+               <!-- Text + Buttons -->
+
+               <div
+                  class="absolute inset-0 flex flex-col justify-end items-center opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out space-y-3 pb-6 py-4">
+                  <h3 class="text-xl font-bold group-hover:text-white">
+                     Kingdom Defense Forces
+                  </h3>
+                  <button
+                     class="bg-white text-red-700 font-bold px-6 py-2 hover:bg-red-600 hover:text-white transition">
+                     Take Command
+                  </button>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <!-- Gallery Section End -->
+
+      <!-- Matches section Start -->
+
+      <div class="container text-white mt-8" id="page4">
+         <!-- Header Section -->
+         <div id="matchesHeading" class="px-4 lg:mx-4 py-6 border-[#1e293b]">
+            <h3 class="text-sm tracking-widest uppercase text-[#38bdf8] font-semibold mb-1 lg:mt-6">
+               Big Bang Matched
+            </h3>
+
+            <h2 class="text-4xl md:text-5xl font-extrabold uppercase tracking-wider">
+               Trending Matches
+            </h2>
+         </div>
+
+         <!-- Teams 1st -->
+
+         <div class="grid grid-cols-12 p-5 bg-black lg:mx-10 mx-3 border border-white rounded-xl">
+            <!-- Team Images -->
+            <div
+               class="col-span-12 lg:col-span-4 flex items-center justify-center p-6 border-b lg:border-b-0 lg:border-r border-[#ff0055] relative">
+               <div class="grid grid-cols-5 items-center gap-6 w-full relative z-10">
+                  <!-- Team 1 -->
+                  <div class="teamImgLeft col-span-2 flex justify-center relative group">
+                     <img src="../public/Images/jim-kazama.jpg" alt="Jin Kazama"
+                        class="object-cover object-top rounded-xl border-2 border-[#00ffff] transition-transform duration-400 group-hover:scale-110 group-hover:shadow-[0_0_35px_#00ffff]" />
+
+                     <div
+                        class="absolute inset-0 rounded-xl blur-[15px] bg-[#00ffff] opacity-10 scale-95 transition-opacity duration-400 group-hover:opacity-0">
+                     </div>
+                  </div>
+
+                  <!-- VS Image -->
+                  <div class="col-span-1 flex justify-center z-20 animate-pulse">
+                     <img src="https://ex-coders.com/html/xports/assets/img/home-2/match/vs.png" alt="VS"
+                        class="w-20 h-20 drop-shadow-[0_0_20px_#ff0055]" />
+                  </div>
+
+                  <!-- Team 2 -->
+                  <div class="teamImgRight col-span-2 flex justify-center relative group">
+                     <img src="../public/Images/kazuya-mishima.jpg" alt="Kazuya Mishima"
+                        class="object-cover object-top rounded-xl border-2 border-[#ff0055] transition-transform duration-400 group-hover:scale-110 group-hover:shadow-[0_0_35px_#ff0055]" />
+                     <div
+                        class="absolute inset-0 rounded-xl blur-[15px] bg-[#ff0055] opacity-10 scale-95 transition-opacity duration-400 group-hover:opacity-0">
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+            <!-- Match Details -->
+            <div id="teamContentFirst"
+               class="col-span-12 lg:col-span-4 p-4 text-white space-y-6 border-b lg:border-b-0 lg:border-r border-[#ff0055] flex flex-col justify-center">
+               <!-- Date & Time -->
+               <div
+                  class="flex items-center gap-8 text-[#00ffff] text-sm font-bold tracking-wider uppercase sm:justify-center md:justify-start lg:justify-start">
+                  <div class="flex items-center gap-3">
+                     <i class="fa-solid fa-calendar-days text-lg animate-pulse"></i>
+                     <span>30 June, 2025</span>
+                  </div>
+
+                  <div class="flex items-center gap-3">
+                     <i class="fa-solid fa-clock text-lg animate-pulse"></i>
+                     <span>10:00 AM - 12:00 PM</span>
+                  </div>
+               </div>
+
+               <!-- Title -->
+               <h3
+                  class="text-2xl lg:text-3xl font-extrabold uppercase hover:text-[#ff0055] transition-colors duration-300 md:text-left lg:text-left">
+                  Father vs Son: The Ultimate Showdown
+               </h3>
+
+               <!-- Description -->
+               <p class="text-[#bbb] text-base leading-relaxed md:text-left lg:text-left font-semibold">
+                  Witness the epic battle between
+                  <span class="text-[#00ffff]">Jin Kazama</span> and
+                  <span class="text-[#ff0055]">Kazuya Mishima</span> as they clash
+                  to determine their legacy.
+               </p>
+            </div>
+
+            <!-- Watch Live On -->
+            <div id="teamButtons" class="col-span-12 lg:col-span-4 borde p-3 lg:mt-4 text-white space-y-2">
+               <!-- Heading -->
+               <h3
+                  class="text-xl font-extrabold p-4 uppercase text-[#00ffff] tracking-widest border-b border-[#00ffff] pb-3 select-none">
+                  Watch Live On
+               </h3>
+
+               <!-- Platform Buttons Grid -->
+               <div class="col-span-12 lg:col-span-4 p-6 text-white space-y-6">
+                  <!-- Platform Buttons Grid -->
+
+                  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-4 text-center">
+                     <a href="https://www.youtube.com/" target="_blank"
+                        class="bg-[#1e293b] hover:scale-110 text-[#38bdf8] font-bold py-3 px-5 hover:bg-[#0f172a] transition-all duration-300 rounded-lg inline-block">
+                        YOUTUBE
+                     </a>
+
+                     <a href="https://discord.com/" target="_blank"
+                        class="bg-[#1e293b] hover:scale-110 text-[#8b5cf6] font-bold py-3 px-5 hover:bg-[#0f172a] transition-all duration-300 rounded-lg inline-block">
+                        DISCORD
+                     </a>
+
+                     <a href="https://www.twitch.tv/" target="_blank"
+                        class="bg-[#1e293b] hover:scale-110 text-[#f472b6] font-bold py-3 px-5 hover:bg-[#0f172a] transition-all duration-300 rounded-lg inline-block">
+                        TWITCH
+                     </a>
+
+                     <a href="https://www.nvidia.com/en-us/geforce/" target="_blank"
+                        class="bg-[#1e293b] hover:scale-110 text-[#22d3ee] font-bold py-3 px-5 hover:bg-[#0f172a] transition-all duration-300 rounded-lg inline-block">
+                        GEFORCE
+                     </a>
+                  </div>
+
+               </div>
+            </div>
+         </div>
+
+         <!-- Team 2nd  -->
+         <div class="grid grid-cols-12 p-5 bg-black lg:mx-10 mx-3 border rounded-xl mt-6">
+            <div
+               class="col-span-12 lg:col-span-4 flex items-center justify-center p-6 border-1 lg:border-b-0 border-b lg:border-r border-red-700">
+               <div class="grid grid-cols-5 items-center gap-6 w-full relative z-10">
+                  <!-- Team 1 -->
+                  <div class="secondTeamImgLeft col-span-2 flex justify-center relative group">
+                     <img src="../public/Images/lui-kang.jpg" alt="Lui kang"
+                        class="object-cover object-top rounded-xl border-2 border-blue-700 transition-transform duration-400 group-hover:scale-110 group-hover:shadow-[0_0_35px_#3b82f6]" />
+
+                     <div
+                        class="absolute inset-0 rounded-xl blur-[15px] bg-[#00ffff] opacity-10 scale-95 transition-opacity duration-400 group-hover:opacity-0">
+                     </div>
+                  </div>
+
+                  <!-- VS Image -->
+                  <div class="col-span-1 flex justify-center z-20 animate-pulse">
+                     <img src="https://ex-coders.com/html/xports/assets/img/home-2/match/vs.png" alt="VS"
+                        class="w-20 h-20 drop-shadow-[0_0_20px_#ff0055]" />
+                  </div>
+
+                  <!-- Team 2 -->
+                  <div class="secondTeamImgRight col-span-2 flex justify-center relative group">
+                     <img src="../public/Images/heichai-mishima.jpg" alt="Heichai Mishima"
+                        class="object-cover object-top rounded-xl border-2 border- transition-transform duration-400 group-hover:scale-110 group-hover:shadow-[0_0_35px_#ff0000]" />
+                     <div
+                        class="absolute inset-0 rounded-xl blur-[15px] bg-[#ff0055] opacity-10 scale-95 transition-opacity duration-400 group-hover:opacity-0">
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+            <div id="teamContentSecond"
+               class="col-span-12 lg:col-span-4 p-6 text-white space-y-4 transition-shadow duration-500 border-1 lg:border-b-0 border-b lg:border-r border-red-700">
+               <!-- Date & Time -->
+               <div
+                  class="flex items-center gap-8 text-[#00ffff] text-sm font-bold tracking-wider uppercase sm:justify-center md:justify-start lg:justify-start">
+                  <div class="flex items-center gap-2">
+                     <i class="fa-solid fa-bag-shopping text-lg animate-pulse"></i>
+                     <span>30 June, 2025</span>
+                  </div>
+
+                  <div class="flex items-center gap-2">
+                     <i class="fa-solid fa-clock text-lg animate-pulse"></i>
+                     <span>08:00 AM - 11:00 AM</span>
+                  </div>
+               </div>
+
+               <!-- Title -->
+               <h3
+                  class="text-2xl lg:text-3xl font-extrabold uppercase hover:text-[#ff0055] transition-colors duration-300 md:text-left lg:text-left">
+                  Inferno Strike: Clash of LIU KANG - HEICHAI MISHIMA
+               </h3>
+
+               <!-- Description -->
+               <p class="text-[#bbb] text-base leading-relaxed md:text-left lg:text-left font-semibold">
+                  Legendary teams collide in a firestorm of skills, strategy, and
+                  power plays. Only the sharpest minds survive this arena of
+                  destruction.
+               </p>
+            </div>
+
+            <div class="col-span-12 lg:col-span-4 p-6 text-white space-y-6">
+               <!-- Heading -->
+               <h3 class="text-xl font-extrabold uppercase text-[#38bdf8] tracking-widest">
+                  Watch Live On
+               </h3>
+
+               <!-- Platform Buttons Grid -->
+               <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-4 text-center">
+                  <a href="https://www.youtube.com/" target="_blank"
+                     class="bg-[#1e293b] hover:scale-110 text-[#38bdf8] font-bold py-3 px-5 hover:bg-[#0f172a] transition-all duration-300 rounded-lg inline-block">
+                     YOUTUBE
+                  </a>
+
+                  <a href="https://discord.com/" target="_blank"
+                     class="bg-[#1e293b] hover:scale-110 text-[#8b5cf6] font-bold py-3 px-5 hover:bg-[#0f172a] transition-all duration-300 rounded-lg inline-block">
+                     DISCORD
+                  </a>
+
+                  <a href="https://www.twitch.tv/" target="_blank"
+                     class="bg-[#1e293b] hover:scale-110 text-[#f472b6] font-bold py-3 px-5 hover:bg-[#0f172a] transition-all duration-300 rounded-lg inline-block">
+                     TWITCH
+                  </a>
+
+                  <a href="https://www.nvidia.com/en-us/geforce/" target="_blank"
+                     class="bg-[#1e293b] hover:scale-110 text-[#22d3ee] font-bold py-3 px-5 hover:bg-[#0f172a] transition-all duration-300 rounded-lg inline-block">
+                     GEFORCE
+                  </a>
+               </div>
+
+            </div>
+         </div>
+
+         <!-- Team 3rd  -->
+
+         <div class="grid grid-cols-12 p-5 bg-black lg:mx-10 mx-3 rounded-xl border mt-6">
+            <div
+               class="col-span-12 lg:col-span-4 flex items-center justify-center p-6 border-1 border-b lg:border-b-0 lg:border-r border-red-700">
+               <div class="grid grid-cols-5 items-center gap-6 w-full">
+                  <!-- Team 1 -->
+                  <div class="thirdTeamImgLeft col-span-2 flex justify-center relative group">
+                     <img src="../public/Images/kin-tarisjpg.jpg" alt="kin Taris"
+                        class="object-cover object-top rounded-xl border-2 border-red-700 transition-transform duration-400 group-hover:scale-110 group-hover:shadow-[0_0_35px_#3b82f6]" />
+
+                     <div
+                        class="absolute inset-0 rounded-xl blur-[15px] bg-[#00ffff] opacity-10 scale-95 transition-opacity duration-400 group-hover:opacity-0">
+                     </div>
+                  </div>
+
+                  <!-- VS Image -->
+                  <div class="col-span-1 flex justify-center z-20 animate-pulse">
+                     <img src="https://ex-coders.com/html/xports/assets/img/home-2/match/vs.png" alt="VS"
+                        class="w-20 h-20 drop-shadow-[0_0_20px_#ff0055]" />
+                  </div>
+
+                  <!-- Team 2 -->
+                  <div class="thirdTeamImgRight col-span-2 flex justify-center relative group">
+                     <img src="../public/Images/king-fighter.jpg" alt="King Fighter"
+                        class="object-cover object-top rounded-xl border-2 border-yellow-400 transition-transform duration-400 group-hover:scale-110 group-hover:shadow-[0_0_35px_#ffff00]" />
+                     <div
+                        class="absolute inset-0 rounded-xl blur-[15px] bg-[#ffff00] opacity-10 scale-95 transition-opacity duration-400 group-hover:opacity-0">
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+            <div id="teamContentThird"
+               class="col-span-12 lg:col-span-4 p-6 text-white space-y-4 transition-shadow duration-500 border-1 lg:border-b-0 border-b lg:border-r border-red-700">
+               <!-- Date & Time -->
+               <div
+                  class="flex items-center gap-8 text-[#00ffff] text-sm font-bold tracking-wider uppercase sm:justify-center md:justify-start lg:justify-start">
+                  <div class="flex items-center gap-2">
+                     <i class="fa-solid fa-bag-shopping text-lg animate-pulse"></i>
+                     <span>30 June, 2025</span>
+                  </div>
+
+                  <div class="flex items-center gap-2">
+                     <i class="fa-solid fa-clock text-lg animate-pulse"></i>
+                     <span>12:00 PM - 06:00 PM</span>
+                  </div>
+               </div>
+
+               <!-- Title -->
+               <h3
+                  class="text-2xl lg:text-3xl font-extrabold uppercase hover:text-[#ff0055] transition-colors duration-300 md:text-left lg:text-left">
+                  Battle Nexus: Final Protocol
+               </h3>
+
+               <!-- Description -->
+               <p class="text-[#bbb] text-base leading-relaxed md:text-left lg:text-left font-semibold">
+                  A high-voltage, reality-bending tournament where time glitches and
+                  gameplay twists redefine every second. No mercy, only mastery.
+               </p>
+            </div>
+
+            <div class="col-span-12 lg:col-span-4 p-6 text-white space-y-6">
+               <!-- Heading -->
+               <h3 class="text-xl font-extrabold uppercase text-[#38bdf8] tracking-widest">
+                  Watch Live On
+               </h3>
+
+
+               <!-- Platform Buttons Grid -->
+               <div id="thirdTeamButtons" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2  gap-4 text-center">
+                  <a href="https://www.youtube.com/" target="_blank"
+                     class="bg-[#1e293b] hover:scale-110 text-[#38bdf8] font-bold py-3 px-5 hover:bg-[#0f172a] transition-all duration-300 rounded-lg inline-block">
+                     YOUTUBE
+                  </a>
+
+                  <a href="https://discord.com/" target="_blank"
+                     class="bg-[#1e293b] hover:scale-110 text-[#8b5cf6] font-bold py-3 px-5 hover:bg-[#0f172a] transition-all duration-300 rounded-lg inline-block">
+                     DISCORD
+                  </a>
+
+                  <a href="https://www.twitch.tv/" target="_blank"
+                     class="bg-[#1e293b] hover:scale-110 text-[#f472b6] font-bold py-3 px-5 hover:bg-[#0f172a] transition-all duration-300 rounded-lg inline-block">
+                     TWITCH
+                  </a>
+
+                  <a href="https://www.nvidia.com/en-us/geforce/" target="_blank"
+                     class="bg-[#1e293b] hover:scale-110 text-[#22d3ee] font-bold py-3 px-5 hover:bg-[#0f172a] transition-all duration-300 rounded-lg inline-block">
+                     GEFORCE
+                  </a>
+               </div>
+
+            </div>
+         </div>
+      </div>
+
+      <!-- Matches section End -->
+
+      <!-- Gaming Site Section Start -->
+      <div id="page5" class="relative w-full min-h-screen bg-cover bg-top bg-no-repeat mt-1" style="
+          background-image: url('../public/Images/blueFighter.jpg');
+          background-size: cover;
+          background-position: top;
+        ">
+         <!-- Futuristic gradient animated overlay -->
+         <div
+            class="absolute inset-0 z-0 pointer-events-none bg-gradient-to-br from-[#000000cc] via-[#0ff2ff11] to-[#000000dd] animate-pulseSlow">
+         </div>
+
+         <!-- Content Wrapper -->
+         <div class="relative z-10 container mx-auto px-4 py-20 grid grid-cols-12 items-center gap-8 min-h-screen">
+            <!-- Text Content -->
+            <div id="gamingSiteContent"
+               class="col-span-12 lg:col-span-7 text-white space-y-10 lg:p-10 hover:scale-105 transform-translate duration-300 ease-in-out">
+               <div class="border-b border-[#00f2ff50] pb-8">
+                  <h5 class="gamingSiteH5 text-sm text-[#00f2ff] tracking-widest uppercase">
+                     Esports & Gaming Sites
+                  </h5>
+
+                  <h2
+                     class="gamingSiteH2 text-4xl md:text-6xl font-extrabold mt-3 leading-tight drop-shadow-[0_0_20px_#00f2ff]">
+                     Enter the Arena of Cyber Legends
+                  </h2>
+
+                  <p class="gamingSitePara text-gray-300 mt-5 text-lg md:text-xl max-w-2xl leading-relaxed">
+                     Powering elite esports worlds with next-gen physics, immersive
+                     realism, and limitless multiplayer innovation.
+                  </p>
+               </div>
+
+               <div class="grid grid-cols-1 md:grid-cols-2 gap-6 border-b border-[#00f2ff30] pb-10 pt-4">
+                  <div
+                     class="bg-[#0a0a0a]/60 border border-[#00f2ff33] p-6 rounded-xl shadow-md hover:shadow-[0_0_30px_#00f2ff88] backdrop-blur-sm transition-transform hover:scale-105 duration-300">
+                     <h3 class="text-xl font-bold text-[#00f2ff] mb-2 drop-shadow-[0_0_10px_#00f2ff80]">
+                        NEON MULTIVERSUS
+                     </h3>
+
+                     <p class="text-gray-300/90">
+                        Traverse luminous worlds and shift timelines with real-time
+                        co-op immersion.
+                     </p>
+                  </div>
+
+                  <div
+                     class="bg-[#0a0a0a]/60 border border-[#d14dff33] p-6 rounded-xl shadow-md hover:shadow-[0_0_30px_#d14dff88] backdrop-blur-sm transition-transform hover:scale-105 duration-300">
+                     <h3 class="text-xl font-bold text-[#d14dff] mb-2 drop-shadow-[0_0_10px_#d14dff99]">
+                        PIXEL REALITY
+                     </h3>
+
+                     <p class="text-gray-300/90">
+                        Feel the pixels breathe with ultra-fidelity graphics and
+                        reactive environments.
+                     </p>
+                  </div>
+               </div>
+
+               <div class="gamingSiteBtn">
+                  <button
+                     class="relative inline-block px-10 py-3 font-bold text-white border-2 border-cyan-400 uppercase tracking-widest rounded-lg bg-gradient-to-r from-cyan-500/20 to-purple-700/20 backdrop-blur-md hover:bg-cyan-500 hover:text-black hover:shadow-[0_0_40px_#00f2ff] transition duration-300 ease-in-out">
+                     EXPLORE NOW
+                  </button>
+               </div>
+            </div>
+
+            <!-- Empty col-span-5 just for spacing/alignment, or you can place another decorative div if needed -->
+            <div class="col-span-12 lg:col-span-5 hidden lg:block"></div>
+         </div>
+      </div>
+
+      <!-- Gaming Site Section End -->
+
+      <!-- Download App Section -->
+      <div id="page5" class="container relative mx-auto mt-10 rounded-2xl p-10 shadow-2xl">
+         <div class="grid grid-cols-12 items-center lg:gap-20">
+            <div
+               class="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-30 animate-pulse z-0">
+            </div>
+
+            <!-- Image Section -->
+            <div id="" class="downloadSectionImg col-span-12 lg:col-span-6 px-7 animate-float">
+               <img
+                  class="w-full lg:h-screen h-full hover:scale-105 duration-300 ease-in-out rounded-2xl drop-shadow-[0_25px_60px_rgba(255,0,0,0.5)]"
+                  src="../public/Images/VrCharacter.png" alt="" />
+            </div>
+
+            <!-- Content Section -->
+            <div
+               class="downloadSectionContent col-span-12 lg:col-span-6 mt-6 text-white space-y-6 hover:scale-[1.02] transform duration-300 ease-in-out">
+               <h4 class="text-cyan-400 text-sm uppercase tracking-[0.3em] animate-pulse">
+                  Download Our App
+               </h4>
+
+               <h2
+                  class="text-4xl md:text-6xl font-extrabold leading-tight bg-gradient-to-r from-cyan-400 via-pink-500 to-purple-500 text-transparent bg-clip-text hover:-translate-y-1 duration-300 ease-in-out drop-shadow-[0_5px_25px_rgba(255,0,255,0.4)]">
+                  Get Our App &<br />
+                  Play Like A Pro
+               </h2>
+
+               <p class="text-gray-300 max-w-xl text-lg leading-relaxed">
+                  Power up your gameplay with our high-performance app. Whether
+                  you're a casual warrior or a competitive legend, unlock next-gen
+                  graphics, real-time tracking, and tactical precision at your
+                  fingertips.
+               </p>
+
+               <ul class="text-sm md:text-base text-gray-300 space-y-3 pt-2">
+                  <li class="flex items-center gap-2">
+                     Real-time multiplayer sync & leaderboards
+                  </li>
+
+                  <li class="flex items-center gap-2">
+                     Adaptive difficulty & cloud save
+                  </li>
+
+                  <li class="flex items-center gap-2">
+                     Gamepad & controller compatibility
+                  </li>
+               </ul>
+
+               <div class="flex flex-wrap gap-4 mt-8">
+                  <a href="#"
+                     class="bg-cyan-500 hover:bg-cyan-600 transition px-6 py-3 rounded-xl font-semibold text-black hover:text-white shadow-[0_10px_30px_rgba(0,255,255,0.6)] hover:-translate-y-1 duration-300 ease-in-out">
+                     🚀 Download for Android
+                  </a>
+                  <a href="#"
+                     class="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-pink-500 hover:to-purple-500 transition px-6 py-3 rounded-xl font-semibold text-white shadow-[0_10px_30px_rgba(255,0,255,0.6)] hover:-translate-y-1 duration-300 ease-in-out">
+                     🎮 Download for iOS
+                  </a>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <!-- Download App Section End -->
+
+      <!-- Carousel Start -->
+
+      <div class="container overflow-hidden mb-8 mt-3">
+         <div class="relative w-full">
+            <div
+               class="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-60 animate-pulse z-0">
+            </div>
+            <div class="flex animate-marquee space-x-6 p-4">
+               <!-- Original Brand Items (Repeated for seamless scroll) -->
+               <div class="flex space-x-6">
+                  <div class="col-span-2 p-4 rounded-xl shadow-xl">
+                     <img class="mx-auto" src="https://ex-coders.com/html/xports/assets/img/home-1/brand/b-1.png"
+                        alt="" />
+                  </div>
+                  <div class="col-span-2 p-4 rounded-xl shadow-xl">
+                     <img class="mx-auto" src="https://ex-coders.com/html/xports/assets/img/home-1/brand/b-2.png"
+                        alt="" />
+                  </div>
+                  <div class="col-span-2 p-4 rounded-xl shadow-xl">
+                     <img class="mx-auto" src="https://ex-coders.com/html/xports/assets/img/home-1/brand/b-5.png"
+                        alt="" />
+                  </div>
+                  <div class="col-span-2 p-4 rounded-xl shadow-xl">
+                     <img class="mx-auto" src="https://ex-coders.com/html/xports/assets/img/home-1/brand/b-6.png"
+                        alt="" />
+                  </div>
+                  <div class="col-span-2 p-4 rounded-xl shadow-xl">
+                     <img class="mx-auto" src="https://ex-coders.com/html/xports/assets/img/home-1/brand/b-3.png"
+                        alt="" />
+                  </div>
+                  <div class="col-span-2 p-4 rounded-xl shadow-xl">
+                     <img class="mx-auto" src="https://ex-coders.com/html/xports/assets/img/home-1/brand/b-4.png"
+                        alt="" />
+                  </div>
+               </div>
+
+               <div class="flex space-x-6">
+                  <div class="col-span-2 p-4 rounded-xl shadow-xl">
+                     <img class="mx-auto" src="https://ex-coders.com/html/xports/assets/img/home-1/brand/b-1.png"
+                        alt="" />
+                  </div>
+                  <div class="col-span-2 p-4 rounded-xl shadow-xl">
+                     <img class="mx-auto" src="https://ex-coders.com/html/xports/assets/img/home-1/brand/b-2.png"
+                        alt="" />
+                  </div>
+                  <div class="col-span-2 p-4 rounded-xl shadow-xl">
+                     <img class="mx-auto" src="https://ex-coders.com/html/xports/assets/img/home-1/brand/b-5.png"
+                        alt="" />
+                  </div>
+                  <div class="col-span-2 p-4 rounded-xl shadow-xl">
+                     <img class="mx-auto" src="https://ex-coders.com/html/xports/assets/img/home-1/brand/b-6.png"
+                        alt="" />
+                  </div>
+                  <div class="col-span-2 p-4 rounded-xl shadow-xl">
+                     <img class="mx-auto" src="https://ex-coders.com/html/xports/assets/img/home-1/brand/b-3.png"
+                        alt="" />
+                  </div>
+                  <div class="col-span-2 p-4 rounded-xl shadow-xl">
+                     <img class="mx-auto" src="https://ex-coders.com/html/xports/assets/img/home-1/brand/b-4.png"
+                        alt="" />
+                  </div>
+               </div>
+
+               <div class="flex space-x-6">
+                  <div class="col-span-2 p-4 rounded-xl shadow-xl">
+                     <img class="mx-auto" src="https://ex-coders.com/html/xports/assets/img/home-1/brand/b-1.png"
+                        alt="" />
+                  </div>
+                  <div class="col-span-2 p-4 rounded-xl shadow-xl">
+                     <img class="mx-auto" src="https://ex-coders.com/html/xports/assets/img/home-1/brand/b-2.png"
+                        alt="" />
+                  </div>
+                  <div class="col-span-2 p-4 rounded-xl shadow-xl">
+                     <img class="mx-auto" src="https://ex-coders.com/html/xports/assets/img/home-1/brand/b-5.png"
+                        alt="" />
+                  </div>
+                  <div class="col-span-2 p-4 rounded-xl shadow-xl">
+                     <img class="mx-auto" src="https://ex-coders.com/html/xports/assets/img/home-1/brand/b-6.png"
+                        alt="" />
+                  </div>
+                  <div class="col-span-2 p-4 rounded-xl shadow-xl">
+                     <img class="mx-auto" src="https://ex-coders.com/html/xports/assets/img/home-1/brand/b-3.png"
+                        alt="" />
+                  </div>
+                  <div class="col-span-2 p-4 rounded-xl shadow-xl">
+                     <img class="mx-auto" src="https://ex-coders.com/html/xports/assets/img/home-1/brand/b-4.png"
+                        alt="" />
+                  </div>
+               </div>
+
+               <!-- Duplicate for infinite scroll -->
+               <div class="flex space-x-6">
+                  <div class="col-span-2 p-4 rounded-xl shadow-xl">
+                     <img class="mx-auto" src="https://ex-coders.com/html/xports/assets/img/home-1/brand/b-1.png"
+                        alt="" />
+                  </div>
+                  <div class="col-span-2 p-4 rounded-xl shadow-xl">
+                     <img class="mx-auto" src="https://ex-coders.com/html/xports/assets/img/home-1/brand/b-2.png"
+                        alt="" />
+                  </div>
+                  <div class="col-span-2 p-4 rounded-xl shadow-xl">
+                     <img class="mx-auto hover:slace-105"
+                        src="https://ex-coders.com/html/xports/assets/img/home-1/brand/b-5.png" alt="" />
+                  </div>
+                  <div class="col-span-2 p-4 rounded-xl shadow-xl">
+                     <img class="mx-auto hover:slace-105"
+                        src="https://ex-coders.com/html/xports/assets/img/home-1/brand/b-6.png" alt="" />
+                  </div>
+                  <div class="col-span-2 p-4 rounded-xl shadow-xl">
+                     <img class="mx-auto hover:slace-105"
+                        src="https://ex-coders.com/html/xports/assets/img/home-1/brand/b-3.png" alt="" />
+                  </div>
+                  <div class="col-span-2 p-4 rounded-xl shadow-xl">
+                     <img class="mx-auto hover:slace-105"
+                        src="https://ex-coders.com/html/xports/assets/img/home-1/brand/b-4.png" alt="" />
+                  </div>
+               </div>
+
+               <div class="flex space-x-6">
+                  <div class="col-span-2 p-4 rounded-xl shadow-xl">
+                     <img class="mx-auto" src="https://ex-coders.com/html/xports/assets/img/home-1/brand/b-1.png"
+                        alt="" />
+                  </div>
+                  <div class="col-span-2 p-4 rounded-xl shadow-xl">
+                     <img class="mx-auto" src="https://ex-coders.com/html/xports/assets/img/home-1/brand/b-2.png"
+                        alt="" />
+                  </div>
+                  <div class="col-span-2 p-4 rounded-xl shadow-xl">
+                     <img class="mx-auto" src="https://ex-coders.com/html/xports/assets/img/home-1/brand/b-5.png"
+                        alt="" />
+                  </div>
+                  <div class="col-span-2 p-4 rounded-xl shadow-xl">
+                     <img class="mx-auto" src="https://ex-coders.com/html/xports/assets/img/home-1/brand/b-6.png"
+                        alt="" />
+                  </div>
+                  <div class="col-span-2 p-4 rounded-xl shadow-xl">
+                     <img class="mx-auto" src="https://ex-coders.com/html/xports/assets/img/home-1/brand/b-3.png"
+                        alt="" />
+                  </div>
+                  <div class="col-span-2 p-4 rounded-xl shadow-xl">
+                     <img class="mx-auto" src="https://ex-coders.com/html/xports/assets/img/home-1/brand/b-4.png"
+                        alt="" />
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <!-- Carousel End -->
+   </main>
+
+   <footer>
+      <div
+         class="relative bg-gradient-to-br from-[#06020f] via-[#0a0f1a] to-[#06020f] text-white font-[Orbitron] py-12 px-6 sm:px-12 overflow-hidden">
+         <div class="relative z-10 grid grid-cols-12 lg:gap-10 gap-6 border-t border-cyan-500/20 pt-10">
+            <!-- Bg Starts Image -->
+
+            <!-- Logo + Description -->
+
+            <div class="col-span-12 lg:col-span-3 space-y-5">
+               <img src="../public/Images/gamin-site-logo.svg" alt="" class="w-32" />
+
+               <p class="text-blue-200 text-sm tracking-wider">
+                  A next-gen studio forging
+                  <span class="text-cyan-400">high-octane</span> gameplay
+                  experiences with deep immersion. Stay locked in.
+               </p>
+
+               <div class="flex items-center gap-4 mt-5">
+                  <i
+                     class="fa-brands fa-facebook text-cyan-400 hover:text-cyan-200 transition hover:scale-110 cursor-pointer text-xl"></i>
+                  <i
+                     class="fa-brands fa-twitter text-cyan-400 hover:text-cyan-200 transition hover:scale-110 cursor-pointer text-xl"></i>
+                  <i
+                     class="fa-brands fa-linkedin text-cyan-400 hover:text-cyan-200 transition hover:scale-110 cursor-pointer text-xl"></i>
+                  <i
+                     class="fa-brands fa-instagram text-cyan-400 hover:text-cyan-200 transition hover:scale-110 cursor-pointer text-xl"></i>
+               </div>
+            </div>
+
+            <!-- Studio Links -->
+            <div class="col-span-6 lg:col-span-3 space-y-4">
+               <h4 class="text-cyan-400 text-lg uppercase tracking-wider border-b border-cyan-700 pb-2">
+                  Our Studio
+               </h4>
+               <ul class="space-y-3 text-sm text-blue-300">
+                  <li>
+                     <a href="#" class="hover:text-cyan-400 transition">About Us</a>
+                  </li>
+                  <li>
+                     <a href="#" class="hover:text-cyan-400 transition">Our Team</a>
+                  </li>
+                  <li>
+                     <a href="#" class="hover:text-cyan-400 transition">Advertising</a>
+                  </li>
+                  <li>
+                     <a href="#" class="hover:text-cyan-400 transition">Legal Notices</a>
+                  </li>
+                  <li>
+                     <a href="#" class="hover:text-cyan-400 transition">Partnership</a>
+                  </li>
+               </ul>
+            </div>
+
+            <!-- Utility Links -->
+            <div class="col-span-6 lg:col-span-3 space-y-4">
+               <h4 class="text-cyan-400 text-lg uppercase tracking-wider border-b border-cyan-700 pb-2">
+                  Utility Pages
+               </h4>
+               <ul class="space-y-3 text-sm text-blue-300">
+                  <li>
+                     <a href="#" class="hover:text-cyan-400 transition">Terms of Service</a>
+                  </li>
+                  <li>
+                     <a href="#" class="hover:text-cyan-400 transition">Privacy/Terms</a>
+                  </li>
+                  <li>
+                     <a href="#" class="hover:text-cyan-400 transition">Gift Cards</a>
+                  </li>
+                  <li>
+                     <a href="#" class="hover:text-cyan-400 transition">Game Review</a>
+                  </li>
+                  <li>
+                     <a href="#" class="hover:text-cyan-400 transition">Subscription</a>
+                  </li>
+               </ul>
+            </div>
+
+            <!-- Game Download -->
+            <div class="col-span-12 lg:col-span-3 space-y-4">
+               <h4 class="text-cyan-400 text-lg uppercase tracking-wider border-b border-cyan-700 pb-2">
+                  Download Our Games
+               </h4>
+               <div
+                  class="rounded-xl overflow-hidden shadow-[0_0_20px_#0ff4] hover:scale-105 transition duration-300 border border-cyan-600">
+                  <img src="https://i.pinimg.com/736x/03/2a/44/032a440f9d4aa497e37b07b39beaecc0.jpg" alt="Game Drive"
+                     class="w-full h-36 object-cover object-center" />
+               </div>
+            </div>
+         </div>
+      </div>
+   </footer>
+
+
+   <!-- GSAP Core -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+   <!-- GSAP Plugins -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollSmoother.min.js"></script>
+
+   <!-- Your Animation Script (must come last) -->
+   <script src="script.js"></script>
+
+</body>
+
+</html>
