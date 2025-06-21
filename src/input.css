@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 
+
 @font-face {
    font-family: 'Orbitron';
    src: url('./fonts/Orbitron-Regular.ttf') format('truetype');
@@ -68,7 +69,7 @@ body {
    width: max-content;
 }
 
-.custom-cursor {
+/* .custom-cursor {
    width: 25px;
    height: 25px;
    background: radial-gradient(circle, #0ff 40%, #00f0ff 100%);
@@ -80,7 +81,7 @@ body {
    box-shadow: 0 0 8px #00fff7, 0 0 15px #00fff7, 0 0 25px #00fff7;
    mix-blend-mode: difference;
    transition: transform 0.15s ease, box-shadow 0.2s ease;
-}
+} */
 
 
 
@@ -95,4 +96,31 @@ body {
    object-fit: cover;
    pointer-events: none;
    /* So user can't interact with video */
+}
+
+
+.textBlock {
+   font-family: "Space Mono", monospace;
+   font-weight: 400;
+   font-style: normal;
+   font-size: clamp(16px, 4vw, 40px);
+   color: #fff;
+   line-height: 1.5;
+}
+
+/* .char {
+   display: inline-block;
+   will-change: transform;
+} */
+
+
+.char {
+   display: inline-block;
+   will-change: transform;
+   background-clip: inherit;
+   -webkit-background-clip: inherit;
+   color: inherit;
+   font-size: inherit;
+   font-weight: inherit;
+   line-height: inherit;
 }
