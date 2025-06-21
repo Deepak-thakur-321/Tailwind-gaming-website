@@ -12,7 +12,6 @@
 
    <script src="https://cdn.tailwindcss.com"></script>
 
-
    <!-- Font Awesome Link -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
       integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
@@ -34,22 +33,33 @@
       <nav class="bg-black text-white shadow-lg shadow-cyan-500/50 font-['Orbitron']">
          <div class="container mx-auto px-4">
             <div class="grid grid-cols-12 py-4 items-center">
-
                <!-- LOGO -->
                <div class="col-span-6 lg:col-span-2">
-                  <img src="/Images/gamin-site-logo.svg" alt="Gaming Logo"
-                     class="w-32 hover:scale-105 transition-transform duration-300">
+                  <img src="./Images/gamin-site-logo.svg" alt="Gaming Logo"
+                     class="w-32 hover:scale-105 transition-transform duration-300" />
                </div>
 
                <!-- DESKTOP MENU -->
                <div class="hidden lg:flex col-span-7 justify-center">
                   <ul class="flex gap-12 text-lg uppercase tracking-wide">
-                     <li><a href="#" class="text-cyan-400 hover:text-white transition-all duration-300">Home</a></li>
-                     <li><a href="#" class="text-cyan-400 hover:text-white transition-all duration-300">Matches</a></li>
-                     <li><a href="#" class="text-cyan-400 hover:text-white transition-all duration-300">Pages</a></li>
-                     <li><a href="#" class="text-cyan-400 hover:text-white transition-all duration-300">Shop</a></li>
-                     <li><a href="#" class="text-cyan-400 hover:text-white transition-all duration-300">Blog</a></li>
-                     <li><a href="#" class="text-cyan-400 hover:text-white transition-all duration-300">Contact</a></li>
+                     <li>
+                        <a href="#" class="text-cyan-400 hover:text-white transition-all duration-300">Home</a>
+                     </li>
+                     <li>
+                        <a href="#" class="text-cyan-400 hover:text-white transition-all duration-300">Matches</a>
+                     </li>
+                     <li>
+                        <a href="#" class="text-cyan-400 hover:text-white transition-all duration-300">Pages</a>
+                     </li>
+                     <li>
+                        <a href="#" class="text-cyan-400 hover:text-white transition-all duration-300">Shop</a>
+                     </li>
+                     <li>
+                        <a href="#" class="text-cyan-400 hover:text-white transition-all duration-300">Blog</a>
+                     </li>
+                     <li>
+                        <a href="#" class="text-cyan-400 hover:text-white transition-all duration-300">Contact</a>
+                     </li>
                   </ul>
                </div>
 
@@ -81,22 +91,28 @@
             class="fixed lg:hidden top-0 left-0 w-72 h-full bg-[#0f0f1b]/90 backdrop-blur-md text-white z-50 transform -translate-x-full transition-transform duration-500 ease-in-out shadow-2xl border-r border-[#38bdf8]/20">
             <div class="mt-12 px-6">
                <ul class="space-y-8 text-xl font-bold tracking-widest">
-                  <li><a href="#"
+                  <li>
+                     <a href="#"
                         class="block hover:scale-110 hover:text-[#38bdf8] transition-all duration-300 ease-in-out">Home</a>
                   </li>
-                  <li><a href="#"
+                  <li>
+                     <a href="#"
                         class="block hover:scale-110 hover:text-[#f472b6] transition-all duration-300 ease-in-out">Matches</a>
                   </li>
-                  <li><a href="#"
+                  <li>
+                     <a href="#"
                         class="block hover:scale-110 hover:text-[#8b5cf6] transition-all duration-300 ease-in-out">Pages</a>
                   </li>
-                  <li><a href="#"
+                  <li>
+                     <a href="#"
                         class="block hover:scale-110 hover:text-[#22d3ee] transition-all duration-300 ease-in-out">Shop</a>
                   </li>
-                  <li><a href="#"
+                  <li>
+                     <a href="#"
                         class="block hover:scale-110 hover:text-[#38bdf8] transition-all duration-300 ease-in-out">Blog</a>
                   </li>
-                  <li><a href="#"
+                  <li>
+                     <a href="#"
                         class="block hover:scale-110 hover:text-[#facc15] transition-all duration-300 ease-in-out">Contact</a>
                   </li>
                </ul>
@@ -115,11 +131,11 @@
       <div class="relative min-h-screen w-full overflow-hidden bg-black text-white">
          <!-- Background Image (Faded Character)  -->
          <img src="Images/GamingWebsiteBgImage.jpg"
-            class="absolute animate-float inset-0 w-full h-full object-cover object-top opacity-40 scale-125 z-0 pointer-events-none"
+            class="absolute animate-float inset-0 w-full h-full object-cover object-top lg:opacity-40 opacity-60 scale-125 z-0 pointer-events-none"
             alt="Background Character" />
 
          <!-- Overlay Aura -->
-         <div class="absolute w-[300px] h-[300px] rounded-full blur-3xl opacity-30 z-0"></div>
+         <div class="absolute w-[300px] h-[300px] rounded-full lg:opacity-30 z-0"></div>
 
          <!-- Foreground Content -->
          <div
@@ -158,7 +174,7 @@
             <!-- Right Side Character Image -->
             <div id="heroImage" class="w-full flex justify-center items-center">
                <img src="Images/heroImage.png"
-                  class="w-full hidden lg:flex max-w-full h-auto object-contain drop-shadow-[0_0_25px_rgba(18,87,255,0.5)] transition duration-300 ease-in-out transform hover:-translate-y-2 scale-x-[-1] shery-parallax"
+                  class="w-full max-w-full h-auto object-contain drop-shadow-[0_0_25px_rgba(18,87,255,0.5)] transition duration-300 ease-in-out transform hover:-translate-y-2 scale-x-[-1] shery-parallax"
                   alt=" Character" />
             </div>
          </div>
@@ -166,10 +182,10 @@
       <!-- Hero section End -->
 
       <!-- About Section -->
-      <div class="container mx-auto py-16" id="page2">
+      <div class="container mx-auto lg:mt-10 mt-5" id="page2">
          <div class="grid grid-cols-12 items-center">
             <!-- Left Section Start -->
-            <div class="col-span-12 md:col-span-12 lg:col-span-6 p-5 relative">
+            <div class="col-span-12 md:col-span-12 lg:col-span-6 relative">
                <div
                   class="text-white p-4 relative z-10 hover:-translate-y-2 transform-translate duration-300 ease-in-out">
                   <h4
@@ -200,7 +216,7 @@
                   <div class="col-span-12 lg:col-span-6 md:col-span-6 space-y-4">
                      <!-- Box 1 -->
                      <div
-                        class="aboutBoxes bg-[#111] border border-[#00ffff33] hover:border-[#00ffff] hover:scale-105 transition duration-300 rounded-xl shadow-lg shadow-cyan-500/10 p-4 flex gap-4 items-start">
+                        class="aboutBoxes mx-3 bg-[#111] border border-[#00ffff33] hover:border-[#00ffff] hover:scale-105 transition duration-300 rounded-xl shadow-lg shadow-cyan-500/10 p-4 flex gap-4 items-start">
                         <img src="https://ex-coders.com/html/xports/assets/img/home-1/icon/icon-1.svg"
                            class="w-12 h-12 animate-pulse" alt="" />
                         <div>
@@ -216,7 +232,7 @@
 
                      <!-- Box 2 -->
                      <div
-                        class="aboutBoxes bg-[#111] border border-[#00ffff33] hover:border-[#00ffff] hover:scale-105 transition duration-300 rounded-xl shadow-lg shadow-cyan-500/10 p-4 flex gap-4 items-start">
+                        class="aboutBoxes mx-3 bg-[#111] border border-[#00ffff33] hover:border-[#00ffff] hover:scale-105 transition duration-300 rounded-xl shadow-lg shadow-cyan-500/10 p-4 flex gap-4 items-start">
                         <img src="https://ex-coders.com/html/xports/assets/img/home-1/icon/icon-3.svg"
                            class="w-12 h-12 animate-pulse" alt="" />
                         <div>
@@ -234,7 +250,7 @@
                   <div class="col-span-12 lg:col-span-6 md:col-span-6 space-y-4">
                      <!-- Box 3 -->
                      <div
-                        class="aboutBoxes bg-[#111] border border-[#d14dff33] hover:border-[#d14dff] hover:scale-105 transition duration-300 rounded-xl shadow-lg shadow-purple-500/10 p-4 flex gap-4 items-start">
+                        class="aboutBoxes mx-3 bg-[#111] border border-[#d14dff33] hover:border-[#d14dff] hover:scale-105 transition duration-300 rounded-xl shadow-lg shadow-purple-500/10 p-4 flex gap-4 items-start">
                         <img src="https://ex-coders.com/html/xports/assets/img/home-1/icon/icon-2.svg"
                            class="w-12 h-12 animate-pulse" alt="" />
                         <div>
@@ -250,7 +266,7 @@
 
                      <!-- Box 4 -->
                      <div
-                        class="aboutBoxes bg-[#111] border border-[#d14dff33] hover:border-[#d14dff] hover:scale-105 transition duration-300 rounded-xl shadow-lg shadow-purple-500/10 p-4 flex gap-4 items-start">
+                        class="aboutBoxes mx-3 bg-[#111] border border-[#d14dff33] hover:border-[#d14dff] hover:scale-105 transition duration-300 rounded-xl shadow-lg shadow-purple-500/10 p-4 flex gap-4 items-start">
                         <img src="https://ex-coders.com/html/xports/assets/img/home-1/icon/icon-4.svg"
                            class="w-12 h-12 animate-pulse" alt="" />
                         <div>
@@ -276,7 +292,7 @@
                   class="relative w-1/2 overflow-hidden rounded-3xl shadow-lg shadow-cyan-500/20 group">
                   <img
                      class="w-full h-full object-cover transform scale-x-[-1] group-hover:-translate-y-2 transition-transform duration-300 ease-in-out"
-                     src="/Images/redNinja.jpg" alt="" />
+                     src="./Images/redNinja.jpg" alt="" />
                   <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-30"></div>
                </div>
 
@@ -285,7 +301,7 @@
                   class="relative w-1/2 overflow-hidden rounded-3xl shadow-lg shadow-purple-500/20 group">
                   <img
                      class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500 ease-in-out"
-                     src="/Images/blueNinja.jpg" alt="" />
+                     src="./Images/blueNinja.jpg" alt="" />
                   <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-30"></div>
                </div>
             </div>
@@ -348,20 +364,18 @@
                class="galleryCardTop relative group col-span-12 md:col-span-6 lg:col-span-3 overflow-hidden hover:-translate-y-2 hover:transform-translate hover:duration-300 hover:ease-in-out hover:shadow-white hover:border hover:border-gray-700">
                <!-- Image -->
                <img class="object-cover w-full h-96 object-top transition duration-300"
-                  src="/Images/shadow-blade-arena.jpg" alt="" />
+                  src="./Images/shadow-blade-arena.jpg" alt="" />
 
-               <!-- Gradient Overlay on Hover -->
+               <!-- Gradient Overlay -->
                <div
-                  class="absolute inset-0 bg-gradient-to-t from-gray-600 via-transparent to-transparent opacity-0 group-hover:opacity-80 transition duration-300">
+                  class="absolute inset-0 bg-gradient-to-t from-gray-600 via-transparent to-transparent opacity-80 md:opacity-0 md:group-hover:opacity-80 transition duration-300">
                </div>
 
                <!-- Text + Buttons -->
-
                <div
-                  class="absolute inset-0 flex flex-col justify-end items-center opacity-0 group-hover:opacity-100 transition duration-300 space-y-3 pb-6 py-4">
-                  <h3 class="text-xl font-bold group-hover:text-white">
-                     Shadow Blade Arena
-                  </h3>
+                  class="absolute inset-0 flex flex-col justify-end items-center opacity-100 md:opacity-0 md:group-hover:opacity-100 transition duration-300 space-y-3 pb-6 py-4">
+                  <h3 class="text-xl font-bold text-white">Shadow Blade Arena</h3>
+
                   <button
                      class="bg-white text-red-700 font-bold px-6 py-2 hover:bg-red-600 hover:text-white transition">
                      Enter Battle
@@ -369,25 +383,26 @@
                </div>
             </div>
 
+
             <!-- 2nd card -->
             <div
                class="galleryCardTop relative group col-span-12 md:col-span-6 lg:col-span-3 overflow-hidden hover:-translate-y-2 hover:transform-translate hover:duration-300 hover:ease-in-out hover:border hover:border-blue-500">
                <!-- Image -->
-               <img class="w-full h-96 object-cover object-top transition duration-300"
-                  src="/Images/street-racer.jpg" alt="" />
+               <img class="w-full h-96 object-cover object-top transition duration-300" src="./Images/street-racer.jpg"
+                  alt="" />
 
-               <!-- Gradient Overlay on Hover -->
+               <!-- Gradient Overlay -->
                <div
-                  class="absolute inset-0 bg-gradient-to-t from-cyan-500 via-transparent to-transparent opacity-0 group-hover:opacity-80 transition duration-300">
+                  class="absolute inset-0 bg-gradient-to-t from-cyan-500 via-transparent to-transparent opacity-80 md:opacity-0 md:group-hover:opacity-80 transition duration-300">
                </div>
 
-               <!-- Text + Buttons -->
-
+               <!-- Text + Button -->
                <div
-                  class="absolute inset-0 flex flex-col justify-end items-center opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out space-y-3 pb-6 py-4">
-                  <h3 class="text-xl font-bold group-hover:text-white">
+                  class="absolute inset-0 flex flex-col justify-end items-center opacity-100 md:opacity-0 md:group-hover:opacity-100 transition duration-300 ease-in-out space-y-3 pb-6 py-4">
+                  <h3 class="text-xl font-bold text-white">
                      Midnight Street Racers
                   </h3>
+
                   <button
                      class="bg-white text-red-700 font-bold px-6 py-2 hover:bg-red-600 hover:text-white transition">
                      Start Racing
@@ -400,21 +415,19 @@
             <div
                class="galleryCardTop relative group col-span-12 md:col-span-6 lg:col-span-3 overflow-hidden hover:-translate-y-2 hover:transform-translate hover:duration-300 hover:ease-in-out hover:shadow-white hover:border hover:border-red-700">
                <!-- Image -->
-               <img class=" w-full h-96 object-cover object-top transition duration-300"
-                  src="/Images/cybernetic-warzone.jpg" alt="" />
+               <img class="w-full h-96 object-cover object-top transition duration-300"
+                  src="./Images/cybernetic-warzone.jpg" alt="" />
 
-               <!-- Gradient Overlay on Hover -->
+               <!-- Gradient Overlay -->
                <div
-                  class="absolute inset-0 bg-gradient-to-t from-red-700 via-transparent to-transparent opacity-0 group-hover:opacity-80 transition duration-300">
+                  class="absolute inset-0 bg-gradient-to-t from-red-700 via-transparent to-transparent opacity-80 md:opacity-0 md:group-hover:opacity-80 transition duration-300">
                </div>
 
                <!-- Text + Buttons -->
-
                <div
-                  class="absolute inset-0 flex flex-col justify-end items-center opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out space-y-3 pb-6 py-4">
-                  <h3 class="text-xl font-bold group-hover:text-white">
-                     Cybernetic Warzone
-                  </h3>
+                  class="absolute inset-0 flex flex-col justify-end items-center opacity-100 md:opacity-0 md:group-hover:opacity-100 transition duration-300 ease-in-out space-y-3 pb-6 py-4">
+                  <h3 class="text-xl font-bold text-white">Cybernetic Warzone</h3>
+
                   <button
                      class="bg-white text-red-700 font-bold px-6 py-2 hover:bg-red-600 hover:text-white transition">
                      Join Battle
@@ -424,22 +437,25 @@
 
             <!-- 4th card -->
 
-            <div
-               class="galleryCardTop relative group col-span-12 md:col-span-6 lg:col-span-3 overflow-hidden hover:-translate-y-2 hover:transform-translate hover:duration-300 hover:ease-in-out hover:shadow-white hover:border hover:border-slate-500">
-               <!-- Image -->
-               <img class=" w-full h-96 object-cover object-top transition duration-300"
-                  src="/Images/zombie-mode.jpg" alt="" />
+            <div class="galleryCardTop relative group col-span-12 md:col-span-6 lg:col-span-3 overflow-hidden 
+         hover:-translate-y-2 hover:transform-translate hover:duration-300 hover:ease-in-out 
+         hover:shadow-white hover:border hover:border-slate-500">
 
-               <!-- Gradient Overlay on Hover -->
-               <div
-                  class="absolute inset-0 bg-gradient-to-t from-slate-800 via-transparent to-transparent opacity-0 group-hover:opacity-80 transition duration-300">
+               <!-- Image -->
+               <img class="w-full h-96 object-cover object-top transition duration-300" src="./Images/zombie-mode.jpg"
+                  alt="Zombie Mode" />
+
+               <!-- Gradient Overlay -->
+               <div class="absolute inset-0 bg-gradient-to-t from-slate-800 via-transparent to-transparent 
+           opacity-100 md:opacity-0 md:group-hover:opacity-80 
+           transition duration-300 z-10">
                </div>
 
-               <!-- Text + Buttons -->
-
-               <div
-                  class="absolute inset-0 flex flex-col justify-end items-center opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out space-y-3 pb-6 py-4">
-                  <h3 class="text-xl font-bold group-hover:text-white">
+               <!-- Text + Button -->
+               <div class="absolute inset-0 flex flex-col justify-end items-center 
+           opacity-100 md:opacity-0 md:group-hover:opacity-100 
+           transition duration-300 ease-in-out space-y-3 pb-6 py-4 z-20 text-center">
+                  <h3 class="text-xl font-bold text-white">
                      Zombie Apocalypse Mode
                   </h3>
                   <button
@@ -449,26 +465,27 @@
                </div>
             </div>
 
+
             <!-- 5th card -->
 
             <div
                class="galleryCardBottom relative group col-span-12 md:col-span-6 lg:col-span-3 overflow-hidden hover:-translate-y-2 hover:transform-translate hover:duration-300 hover:ease-in-out hover:shadow-white hover:border hover:border-red-500">
                <!-- Image -->
-               <img class=" w-full h-96 object-cover object-top transition duration-300"
-                  src="/Images/alien-invision.jpg" alt="" />
+               <img class="w-full h-96 object-cover object-top transition duration-300"
+                  src="./Images/alien-invision.jpg" alt="" />
 
-               <!-- Gradient Overlay on Hover -->
+               <!-- Gradient Overlay -->
                <div
-                  class="absolute inset-0 bg-gradient-to-t from-red-700 via-transparent to-transparent opacity-0 group-hover:opacity-80 transition duration-300">
+                  class="absolute inset-0 bg-gradient-to-t from-red-700 via-transparent to-transparent opacity-80 md:opacity-0 md:group-hover:opacity-80 transition duration-300">
                </div>
 
                <!-- Text + Buttons -->
-
                <div
-                  class="absolute inset-0 flex flex-col justify-end items-center opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out space-y-3 pb-6 py-4">
-                  <h3 class="text-xl font-bold group-hover:text-white">
+                  class="absolute inset-0 flex flex-col justify-end items-center opacity-100 md:opacity-0 md:group-hover:opacity-100 transition duration-300 ease-in-out space-y-3 pb-6 py-4">
+                  <h3 class="text-xl font-bold text-white">
                      Alien Invasion Mission
                   </h3>
+
                   <button
                      class="bg-white text-red-700 font-bold px-6 py-2 hover:bg-red-600 hover:text-white transition">
                      Deploy Troops
@@ -479,23 +496,21 @@
             <!-- 6th card -->
 
             <div
-               class="galleryCardBottom relative group col-span-12 md:col-span-6 lg:col-span-3 overflow-hidden hover:-translate-y-2 hover:transform-translate hover:duration-300 hover:ease-in-out hover:border hover:border-gray-500">
+               class="hidden lg:block md:block galleryCardBottom relative group col-span-12 md:col-span-6 lg:col-span-3 overflow-hidden hover:-translate-y-2 hover:transform-translate hover:duration-300 hover:ease-in-out hover:border hover:border-gray-500">
                <!-- Image -->
-               <img class=" w-full h-96 object-cover object-top transition duration-300"
-                  src="/Images/dragon-rise.jpg" alt="" />
+               <img class="w-full h-96 object-cover object-top transition duration-300" src="./Images/dragon-rise.jpg"
+                  alt="" />
 
-               <!-- Gradient Overlay on Hover -->
+               <!-- Gradient Overlay -->
                <div
-                  class="absolute inset-0 bg-gradient-to-t from-gray-950 via-transparent to-transparent opacity-0 group-hover:opacity-80 transition duration-300">
+                  class="absolute inset-0 bg-gradient-to-t from-gray-950 via-transparent to-transparent opacity-80 md:opacity-0 md:group-hover:opacity-80 transition duration-300">
                </div>
 
                <!-- Text + Buttons -->
-
                <div
-                  class="absolute inset-0 flex flex-col justify-end items-center opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out space-y-3 pb-6 py-4">
-                  <h3 class="text-xl font-bold group-hover:text-white">
-                     Rise of the Dragon
-                  </h3>
+                  class="absolute inset-0 flex flex-col justify-end items-center opacity-100 md:opacity-0 md:group-hover:opacity-100 transition duration-300 ease-in-out space-y-3 pb-6 py-4">
+                  <h3 class="text-xl font-bold text-white">Rise of the Dragon</h3>
+
                   <button
                      class="bg-white text-red-700 font-bold px-6 py-2 hover:bg-red-600 hover:text-white transition">
                      Begin Hunt
@@ -506,23 +521,21 @@
             <!-- 7th card -->
 
             <div
-               class="galleryCardBottom relative group col-span-12 md:col-span-6 lg:col-span-3 overflow-hidden hover:-translate-y-2 hover:transform-translate hover:duration-300 hover:ease-in-out hover:shadow-xl hover:border hover:border-gray-500">
+               class="hidden lg:block md:block galleryCardBottom relative group col-span-12 md:col-span-6 lg:col-span-3 overflow-hidden hover:-translate-y-2 hover:transform-translate hover:duration-300 hover:ease-in-out hover:shadow-xl hover:border hover:border-gray-500">
                <!-- Image -->
-               <img class=" w-full h-96 object-cover object-top transition duration-300"
-                  src="/Images/future-strike.jpg" alt="" />
+               <img class="w-full h-96 object-cover object-top transition duration-300" src="./Images/future-strike.jpg"
+                  alt="" />
 
-               <!-- Gradient Overlay on Hover -->
+               <!-- Gradient Overlay -->
                <div
-                  class="absolute inset-0 bg-gradient-to-t from-slate-800 via-transparent to-transparent opacity-0 group-hover:opacity-80 transition duration-300">
+                  class="absolute inset-0 bg-gradient-to-t from-slate-800 via-transparent to-transparent opacity-80 md:opacity-0 md:group-hover:opacity-80 transition duration-300">
                </div>
 
                <!-- Text + Buttons -->
-
                <div
-                  class="absolute inset-0 flex flex-col justify-end items-center opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out space-y-3 pb-6 py-4">
-                  <h3 class="text-xl font-bold group-hover:text-white">
-                     Future Strike Ops
-                  </h3>
+                  class="absolute inset-0 flex flex-col justify-end items-center opacity-100 md:opacity-0 md:group-hover:opacity-100 transition duration-300 ease-in-out space-y-3 pb-6 py-4">
+                  <h3 class="text-xl font-bold text-white">Future Strike Ops</h3>
+
                   <button
                      class="bg-white text-red-700 font-bold px-6 py-2 hover:bg-red-600 hover:text-white transition">
                      Launch Mission
@@ -533,33 +546,36 @@
             <!-- 8th card -->
 
             <div
-               class="galleryCardBottom relative group col-span-12 md:col-span-6 lg:col-span-3 overflow-hidden hover:-translate-y-2 hover:transform-translate hover:duration-300 hover:ease-in-out hover:shadow-white hover:border hover:border-slate-500">
+               class="hidden lg:block md:block galleryCardBottom relative group col-span-12 md:col-span-6 lg:col-span-3 overflow-hidden hover:-translate-y-2 hover:transform-translate hover:duration-300 hover:ease-in-out hover:shadow-white hover:border hover:border-slate-500">
                <!-- Image -->
-               <img class=" w-full h-96 object-cover object-top transition duration-300"
-                  src="/Images/kingdom-defence.jpg" alt="" />
+               <img class="w-full h-96 object-cover object-top transition duration-300"
+                  src="./Images/kingdom-defence.jpg" alt="" />
 
-               <!-- Gradient Overlay on Hover -->
+               <!-- Gradient Overlay -->
                <div
-                  class="absolute inset-0 bg-gradient-to-t from-slate-700 via-transparent to-transparent opacity-0 group-hover:opacity-80 transition duration-300">
+                  class="absolute inset-0 bg-gradient-to-t from-slate-700 via-transparent to-transparent opacity-80 md:opacity-0 md:group-hover:opacity-80 transition duration-300">
                </div>
 
                <!-- Text + Buttons -->
-
                <div
-                  class="absolute inset-0 flex flex-col justify-end items-center opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out space-y-3 pb-6 py-4">
-                  <h3 class="text-xl font-bold group-hover:text-white">
+                  class="absolute inset-0 flex flex-col justify-end items-center opacity-100 md:opacity-0 md:group-hover:opacity-100 transition duration-300 ease-in-out space-y-3 pb-6 py-4">
+                  <h3 class="text-xl font-bold text-white">
                      Kingdom Defense Forces
                   </h3>
+
                   <button
                      class="bg-white text-red-700 font-bold px-6 py-2 hover:bg-red-600 hover:text-white transition">
                      Take Command
                   </button>
                </div>
             </div>
+
          </div>
       </div>
 
       <!-- Gallery Section End -->
+
+
 
       <!-- Matches section Start -->
 
@@ -580,11 +596,12 @@
          <div class="grid grid-cols-12 p-5 bg-black lg:mx-10 mx-3 border border-white rounded-xl">
             <!-- Team Images -->
             <div
-               class="col-span-12 lg:col-span-4 flex items-center justify-center p-6 border-b lg:border-b-0 lg:border-r border-[#ff0055] relative">
+               class="col-span-12 lg:col-span-4 flex items-center justify-center p-4 border-b lg:border-b-0 lg:border-r border-[#ff0055] relative">
                <div class="grid grid-cols-5 items-center gap-6 w-full relative z-10">
+
                   <!-- Team 1 -->
                   <div class="teamImgLeft col-span-2 flex justify-center relative group">
-                     <img src="/Images/jim-kazama.jpg" alt="Jin Kazama"
+                     <img src="./Images/jim-kazama.jpg" alt="Jin Kazama"
                         class="object-cover object-top rounded-xl border-2 border-[#00ffff] transition-transform duration-400 group-hover:scale-110 group-hover:shadow-[0_0_35px_#00ffff]" />
 
                      <div
@@ -600,7 +617,7 @@
 
                   <!-- Team 2 -->
                   <div class="teamImgRight col-span-2 flex justify-center relative group">
-                     <img src="/Images/kazuya-mishima.jpg" alt="Kazuya Mishima"
+                     <img src="./Images/kazuya-mishima.jpg" alt="Kazuya Mishima"
                         class="object-cover object-top rounded-xl border-2 border-[#ff0055] transition-transform duration-400 group-hover:scale-110 group-hover:shadow-[0_0_35px_#ff0055]" />
                      <div
                         class="absolute inset-0 rounded-xl blur-[15px] bg-[#ff0055] opacity-10 scale-95 transition-opacity duration-400 group-hover:opacity-0">
@@ -611,7 +628,8 @@
 
             <!-- Match Details -->
             <div id="teamContentFirst"
-               class="col-span-12 lg:col-span-4 p-4 text-white space-y-6 border-b lg:border-b-0 lg:border-r border-[#ff0055] flex flex-col justify-center">
+               class="col-span-12 lg:col-span-4 py-3 text-white space-y-6 border-b lg:border-b-0 lg:border-r border-[#ff0055] flex flex-col justify-center">
+
                <!-- Date & Time -->
                <div
                   class="flex items-center gap-8 text-[#00ffff] text-sm font-bold tracking-wider uppercase sm:justify-center md:justify-start lg:justify-start">
@@ -674,7 +692,6 @@
                         GEFORCE
                      </a>
                   </div>
-
                </div>
             </div>
          </div>
@@ -682,11 +699,12 @@
          <!-- Team 2nd  -->
          <div class="grid grid-cols-12 p-5 bg-black lg:mx-10 mx-3 border rounded-xl mt-6">
             <div
-               class="col-span-12 lg:col-span-4 flex items-center justify-center p-6 border-1 lg:border-b-0 border-b lg:border-r border-red-700">
+               class="col-span-12 lg:col-span-4 flex items-center justify-center p-4 border-1 lg:border-b-0 border-b lg:border-r border-red-700">
                <div class="grid grid-cols-5 items-center gap-6 w-full relative z-10">
+
                   <!-- Team 1 -->
                   <div class="secondTeamImgLeft col-span-2 flex justify-center relative group">
-                     <img src="/Images/lui-kang.jpg" alt="Lui kang"
+                     <img src="./Images/lui-kang.jpg" alt="Lui kang"
                         class="object-cover object-top rounded-xl border-2 border-blue-700 transition-transform duration-400 group-hover:scale-110 group-hover:shadow-[0_0_35px_#3b82f6]" />
 
                      <div
@@ -702,7 +720,7 @@
 
                   <!-- Team 2 -->
                   <div class="secondTeamImgRight col-span-2 flex justify-center relative group">
-                     <img src="/Images/heichai-mishima.jpg" alt="Heichai Mishima"
+                     <img src="./Images/heichai-mishima.jpg" alt="Heichai Mishima"
                         class="object-cover object-top rounded-xl border-2 border- transition-transform duration-400 group-hover:scale-110 group-hover:shadow-[0_0_35px_#ff0000]" />
                      <div
                         class="absolute inset-0 rounded-xl blur-[15px] bg-[#ff0055] opacity-10 scale-95 transition-opacity duration-400 group-hover:opacity-0">
@@ -712,7 +730,7 @@
             </div>
 
             <div id="teamContentSecond"
-               class="col-span-12 lg:col-span-4 p-6 text-white space-y-4 transition-shadow duration-500 border-1 lg:border-b-0 border-b lg:border-r border-red-700">
+               class="col-span-12 lg:col-span-4 py-3 text-white space-y-4 transition-shadow duration-500 border-1 lg:border-b-0 border-b lg:border-r border-red-700">
                <!-- Date & Time -->
                <div
                   class="flex items-center gap-8 text-[#00ffff] text-sm font-bold tracking-wider uppercase sm:justify-center md:justify-start lg:justify-start">
@@ -769,19 +787,20 @@
                      GEFORCE
                   </a>
                </div>
-
             </div>
          </div>
 
          <!-- Team 3rd  -->
 
          <div class="grid grid-cols-12 p-5 bg-black lg:mx-10 mx-3 rounded-xl border mt-6">
+
             <div
-               class="col-span-12 lg:col-span-4 flex items-center justify-center p-6 border-1 border-b lg:border-b-0 lg:border-r border-red-700">
+               class="col-span-12 lg:col-span-4 flex items-center justify-center p-4 border-1 border-b lg:border-b-0 lg:border-r border-red-700">
                <div class="grid grid-cols-5 items-center gap-6 w-full">
+
                   <!-- Team 1 -->
                   <div class="thirdTeamImgLeft col-span-2 flex justify-center relative group">
-                     <img src="/Images/kin-tarisjpg.jpg" alt="kin Taris"
+                     <img src="./Images/kin-tarisjpg.jpg" alt="kin Taris"
                         class="object-cover object-top rounded-xl border-2 border-red-700 transition-transform duration-400 group-hover:scale-110 group-hover:shadow-[0_0_35px_#3b82f6]" />
 
                      <div
@@ -797,7 +816,7 @@
 
                   <!-- Team 2 -->
                   <div class="thirdTeamImgRight col-span-2 flex justify-center relative group">
-                     <img src="/Images/king-fighter.jpg" alt="King Fighter"
+                     <img src="./Images/king-fighter.jpg" alt="King Fighter"
                         class="object-cover object-top rounded-xl border-2 border-yellow-400 transition-transform duration-400 group-hover:scale-110 group-hover:shadow-[0_0_35px_#ffff00]" />
                      <div
                         class="absolute inset-0 rounded-xl blur-[15px] bg-[#ffff00] opacity-10 scale-95 transition-opacity duration-400 group-hover:opacity-0">
@@ -807,7 +826,7 @@
             </div>
 
             <div id="teamContentThird"
-               class="col-span-12 lg:col-span-4 p-6 text-white space-y-4 transition-shadow duration-500 border-1 lg:border-b-0 border-b lg:border-r border-red-700">
+               class="col-span-12 lg:col-span-4 py-3 text-white space-y-4 transition-shadow duration-500 border-1 lg:border-b-0 border-b lg:border-r border-red-700">
                <!-- Date & Time -->
                <div
                   class="flex items-center gap-8 text-[#00ffff] text-sm font-bold tracking-wider uppercase sm:justify-center md:justify-start lg:justify-start">
@@ -841,9 +860,8 @@
                   Watch Live On
                </h3>
 
-
                <!-- Platform Buttons Grid -->
-               <div id="thirdTeamButtons" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2  gap-4 text-center">
+               <div id="thirdTeamButtons" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-4 text-center">
                   <a href="https://www.youtube.com/" target="_blank"
                      class="bg-[#1e293b] hover:scale-110 text-[#38bdf8] font-bold py-3 px-5 hover:bg-[#0f172a] transition-all duration-300 rounded-lg inline-block">
                      YOUTUBE
@@ -864,7 +882,6 @@
                      GEFORCE
                   </a>
                </div>
-
             </div>
          </div>
       </div>
@@ -873,7 +890,7 @@
 
       <!-- Gaming Site Section Start -->
       <div id="page5" class="relative w-full min-h-screen bg-cover bg-top bg-no-repeat mt-1" style="
-          background-image: url('/Images/blueFighter.jpg');
+          background-image: url('./Images/blueFighter.jpg');
           background-size: cover;
           background-position: top;
         ">
@@ -883,7 +900,8 @@
          </div>
 
          <!-- Content Wrapper -->
-         <div class="relative z-10 container mx-auto px-4 py-20 grid grid-cols-12 items-center gap-8 min-h-screen">
+         <div class="relative z-10 container mx-auto px-2 py-20 grid grid-cols-12 items-center gap-8 min-h-screen">
+
             <!-- Text Content -->
             <div id="gamingSiteContent"
                class="col-span-12 lg:col-span-7 text-white space-y-10 lg:p-10 hover:scale-105 transform-translate duration-300 ease-in-out">
@@ -945,7 +963,7 @@
       <!-- Gaming Site Section End -->
 
       <!-- Download App Section -->
-      <div id="page5" class="container relative mx-auto mt-10 rounded-2xl p-10 shadow-2xl">
+      <div id="page5" class="container relative mx-auto mt-10 rounded-2xl lg:p-10  shadow-2xl">
          <div class="grid grid-cols-12 items-center lg:gap-20">
             <div
                class="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-30 animate-pulse z-0">
@@ -955,12 +973,12 @@
             <div id="" class="downloadSectionImg col-span-12 lg:col-span-6 px-7 animate-float">
                <img
                   class="w-full lg:h-screen h-full hover:scale-105 duration-300 ease-in-out rounded-2xl drop-shadow-[0_25px_60px_rgba(255,0,0,0.5)]"
-                  src="/Images/VrCharacter.png" alt="" />
+                  src="./Images/VrCharacter.png" alt="" />
             </div>
 
             <!-- Content Section -->
             <div
-               class="downloadSectionContent col-span-12 lg:col-span-6 mt-6 text-white space-y-6 hover:scale-[1.02] transform duration-300 ease-in-out">
+               class="downloadSectionContent col-span-12 lg:col-span-6 mt-6 p-4 text-justify text-white space-y-6 hover:scale-[1.02] transform duration-300 ease-in-out">
                <h4 class="text-cyan-400 text-sm uppercase tracking-[0.3em] animate-pulse">
                   Download Our App
                </h4>
@@ -1251,7 +1269,6 @@
       </div>
    </footer>
 
-
    <!-- GSAP Core -->
    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
@@ -1261,7 +1278,6 @@
 
    <!-- Your Animation Script (must come last) -->
    <script src="script.js"></script>
-
 </body>
 
 </html>
