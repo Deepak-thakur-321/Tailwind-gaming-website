@@ -385,7 +385,65 @@ gsap.from("#page5 .downloadSectionContent", {
 
 
 
+// Shery.textAnimate(".cyberText", {
+//    style: 1, // Try 1–6
+//    config: {
+//       speed: 1.5,
+//       effect: "glitch", // or "swirl", "stomp"
+//       direction: "horizontal",
+//    },
+// });
 
+
+
+function scrambleEffect(element) {
+   if (element._scrambling) return;
+   element._scrambling = true;
+
+   const originalText = element.textContent;
+   const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+   let frame = 0;
+   const scrambleDuration = 500; // ms
+   const fps = 30;
+   const totalFrames = Math.floor(scrambleDuration / (1000 / fps));
+
+   element._scrambleInterval = setInterval(() => {
+      element.textContent = originalText
+         .split("")
+         .map((char, i) => {
+            if (char === " " || frame > totalFrames / 2) return char;
+            return chars[Math.floor(Math.random() * chars.length)];
+         })
+         .join("");
+      frame++;
+      if (frame >= totalFrames) {
+         clearInterval(element._scrambleInterval);
+         element.textContent = originalText;
+         element._scrambling = false;
+      }
+   }, 1000 / fps);
+
+   // Mouse leave par turant original text restore karo
+   element._restore = () => {
+      clearInterval(element._scrambleInterval);
+      element.textContent = originalText;
+      element._scrambling = false;
+   };
+}
+
+// Sirf hover par effect lagao, load par kabhi nahi
+document.querySelectorAll(".scramble").forEach((el) => {
+   el.addEventListener("mouseenter", () => scrambleEffect(el));
+   el.addEventListener("mouseleave", function () {
+      if (el._restore) el._restore();
+   });
+});
+
+
+const el = document.getElementById('myText');
+const scramble = new ScrambleText(el);
+el.addEventListener('mouseenter', () => scramble.start());
+el.addEventListener('mouseleave', () => scramble.setText(el.textContent));
 
 
 
