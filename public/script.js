@@ -362,39 +362,23 @@ gsap.from(["#page5 .gamingSiteBoxes", "#page5 .gamingSiteBtn"], {
 
 // Gaming Site End //
 
+
 // Download Section start //
 
 gsap.from("#page5 .downloadSectionContent", {
    opacity: 0,
-   // duration: 1,
-   // delay: 0.3,
    scale: 0.9,
    y: 50,
    ease: "power2.out",
    scrollTrigger: {
       trigger: "#page5 .downloadSectionContent",
-      // scroller: "body",
       scrub: true,
-      // start: "top 80%",
-      // toggleActions: "play none none reverse",
-      // markers: true
    }
 });
 
 
 
-
-
-// Shery.textAnimate(".cyberText", {
-//    style: 1, // Try 1–6
-//    config: {
-//       speed: 1.5,
-//       effect: "glitch", // or "swirl", "stomp"
-//       direction: "horizontal",
-//    },
-// });
-
-
+// Text Scramble Effect Js //
 
 function scrambleEffect(element) {
    if (element._scrambling) return;

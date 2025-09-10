@@ -3,7 +3,6 @@
 @tailwind utilities;
 
 
-
 @font-face {
    font-family: 'Orbitron';
    src: url('./fonts/Orbitron-Regular.ttf') format('truetype');
@@ -69,21 +68,6 @@ body {
    width: max-content;
 }
 
-/* .custom-cursor {
-   width: 25px;
-   height: 25px;
-   background: radial-gradient(circle, #0ff 40%, #00f0ff 100%);
-   border-radius: 50%;
-   position: fixed;
-   pointer-events: none;
-   z-index: 9999;
-   transform: translate(-50%, -50%);
-   box-shadow: 0 0 8px #00fff7, 0 0 15px #00fff7, 0 0 25px #00fff7;
-   mix-blend-mode: difference;
-   transition: transform 0.15s ease, box-shadow 0.2s ease;
-} */
-
-
 
 .video-bg iframe {
    width: 100vw;
@@ -95,7 +79,6 @@ body {
    left: 0;
    object-fit: cover;
    pointer-events: none;
-   /* So user can't interact with video */
 }
 
 

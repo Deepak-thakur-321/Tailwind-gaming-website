@@ -161,7 +161,7 @@
 
 			var matchTag = string.match(tag);
 
-			if (!!matchTag) {
+			if (matchTag) {
 
 				array.push({
 					type: 'tag',
@@ -173,7 +173,7 @@
 
 			var matchSpace = string.match(space);
 
-			if (!!matchSpace) {
+			if (matchSpace) {
 
 				array.push({
 					type: 'space',
